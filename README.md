@@ -43,7 +43,7 @@ To add a new helper:
 
 1. Create a new js file in `helpers`
 ```javascript
-export function HelperName(a, b, options) {
+export function helperName(a = 5, b = 4, options) {
   if (a > b) {
     return options.fn(this);
   } else {
