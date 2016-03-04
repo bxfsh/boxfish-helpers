@@ -1,7 +1,7 @@
 {
   "name": "boxfish-helpers",
   "description": "Reusable Mustache / Handlebars helpers",
-  "main": "dist/main.js",
+  "main": "dist/bundle.js",
   "authors": [
     "Mark Murray <mark@boxfish.com>"
   ],

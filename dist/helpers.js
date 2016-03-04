@@ -27,7 +27,6 @@ exports.fromNow = fromNow;
 exports.gt = gt;
 exports.gte = gte;
 exports.gtlt = gtlt;
-exports.hasOwnProperty = hasOwnProperty;
 exports.hasProperty = hasProperty;
 exports.hasPropertyLength = hasPropertyLength;
 exports.itemAtIndex = itemAtIndex;
@@ -368,14 +367,6 @@ function gte(a, b, options) {
 
 function gtlt(a, b, options) {
   if (a > b || a < b) {
-    return options.fn(this);
-  } else {
-    return options.inverse(this);
-  }
-}
-
-function hasOwnProperty(obj, prop, options) {
-  if (obj.hasOwnProperty(prop)) {
     return options.fn(this);
   } else {
     return options.inverse(this);
