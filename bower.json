@@ -24,7 +24,7 @@
     "tests"
   ],
   "dependencies": {
-    "lodash": "^4.6.1",
+    "lodash": "^3.10.1",
     "moment": "momentjs#^2.11.2",
     "numeral": "^1.5.3"
   }
