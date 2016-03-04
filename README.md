@@ -37,7 +37,7 @@ for (var helper in BoxfishHelpers) {
 Docs for helpers coming soon.
 
 ## Contributing
-The helper functions are located in `./helpers` as individual ES6 JavasScript files.
+The helper functions are located in `./helpers` as individual ES6 JavaScript files.
 
 To add a new helper:
 
