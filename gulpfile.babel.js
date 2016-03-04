@@ -33,7 +33,10 @@ gulp.task('babel', () => {
 // Basic usage
 gulp.task('browserify', function () {
   gulp.src('js/main.js')
-		.pipe(browserify({ insertGlobals: false }))
+		.pipe(browserify({
+      sourceType: 'module',
+      standalone: 'BoxfishHelpers',
+    }))
     .pipe(rename('bundle.js'))
 		.pipe(gulp.dest('./dist'));
 });
