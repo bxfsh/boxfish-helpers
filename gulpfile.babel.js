@@ -27,12 +27,12 @@ gulp.task('babel', () => {
     .pipe(babel({
       presets: ['es2015'],
     }))
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('js'));
 });
 
 // Basic usage
 gulp.task('browserify', function () {
-  gulp.src('dist/helpers.js')
+  gulp.src('js/main.js')
 		.pipe(browserify({ insertGlobals: false }))
     .pipe(rename('bundle.js'))
 		.pipe(gulp.dest('./dist'));
