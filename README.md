@@ -33,15 +33,18 @@ for (var helper in BoxfishHelpers) {
 }
 ```
 
+## Docs
+Docs for helpers coming soon.
+
 ## Contributing
 The helper functions are located in `./helpers` as individual ES6 JavasScript files.
 
 To add a new helper:
 
-1. Create a new file in `helpers`
+1. Create a new js file in `helpers`
 ```javascript
-export function HelperName(args, options) {
-  if (args) {
+export function HelperName(a, b, options) {
+  if (a > b) {
     return options.fn(this);
   } else {
     return options.inverse(this);
@@ -54,4 +57,4 @@ export function HelperName(args, options) {
 gulp
 ```
 
-or use `gulp watch` to build in development when you make changes.
+or use `gulp watch` to automatically build each time you make changes.
