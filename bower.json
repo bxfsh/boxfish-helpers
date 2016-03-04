@@ -1,0 +1,31 @@
+{
+  "name": "boxfish-helpers",
+  "description": "Reusable Mustache / Handlebars helpers",
+  "main": "dist/helpers.min.js",
+  "authors": [
+    "Mark Murray <mark@boxfish.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "boxfish",
+    "mustache",
+    "handlebars",
+    "helpers"
+  ],
+  "homepage": "https://github.com/bxfsh/boxfish-helpers",
+  "moduleType": [
+    "globals"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "lodash": "^4.6.1",
+    "moment": "momentjs#^2.11.2",
+    "numeral": "^1.5.3"
+  }
+}

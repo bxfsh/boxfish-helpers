@@ -1,0 +1,11 @@
+/**
+ * Returns all of the items in the collection after the specified count.
+ * @usage {{after array count}}
+ *
+ * @param  {Array}  array - Collection
+ * @param  {Number} count - Number of items to exclude
+ * @return {Array} Array excluding the number of items specified
+ */
+export function after(array = [], count) {
+  return array.slice(count);
+}
