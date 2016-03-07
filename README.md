@@ -53,6 +53,8 @@ export function helperName(arg1 = 4, arg2 = 5, options) {
 }
 ```
 
+> Note: A function comment is required for every helper as the docs are auto-generated.
+
 * Run Gulp to build the helpers:
 ```shell
 gulp
