@@ -57,12 +57,12 @@
             <article id=after>
               <h2>after</h2>
               <p>Returns all of the items in the collection after the specified count.</p>
-
-              <h4>Params:</h4>
-              <ul class="params">
-                    <li><code>array</code> <span>- (Array)</span> - Collection</li>
-                    <li><code>count</code> <span>- (Number)</span> - Number of items to exclude</li>
-              </ul>
+              <pre><code class="javascript">function after(array, count) { ... }</code></pre>
+                <h4>Params:</h4>
+                <ul class="params">
+                      <li><code>array</code> <span>- (Array)</span> - Collection</li>
+                      <li><code>count</code> <span>- (Number)</span> - Number of items to exclude</li>
+                </ul>
 
                 <h4>Usage:</h4>
                 <pre><code class="javascript">{{after posts 5}}</code></pre>
@@ -70,12 +70,12 @@
             <article id=and>
               <h2>and</h2>
               <p>And operator helper</p>
-
-              <h4>Params:</h4>
-              <ul class="params">
-                    <li><code>a</code> <span>- (String)</span> </li>
-                    <li><code>b</code> <span>- (String)</span> </li>
-              </ul>
+              <pre><code class="javascript">function and(a, b, options) { ... }</code></pre>
+                <h4>Params:</h4>
+                <ul class="params">
+                      <li><code>a</code> <span>- (String)</span> </li>
+                      <li><code>b</code> <span>- (String)</span> </li>
+                </ul>
 
                 <h4>Usage:</h4>
                 <pre><code class="javascript">{{#and isAdmin isLoggedIn}}
@@ -85,12 +85,12 @@
             <article id=arrayContains>
               <h2>arrayContains</h2>
               <p>Determines if an array contains an element with specified value</p>
-
-              <h4>Params:</h4>
-              <ul class="params">
-                    <li><code>array</code> <span>- (Array)</span> </li>
-                    <li><code>value</code> <span>- (String)</span> </li>
-              </ul>
+              <pre><code class="javascript">function arrayContains(array, value, options) { ... }</code></pre>
+                <h4>Params:</h4>
+                <ul class="params">
+                      <li><code>array</code> <span>- (Array)</span> </li>
+                      <li><code>value</code> <span>- (String)</span> </li>
+                </ul>
 
                 <h4>Usage:</h4>
                 <pre><code class="javascript">{{#arrayContains countries &#x27;Ireland&#x27;}}
@@ -100,12 +100,12 @@
             <article id=before>
               <h2>before</h2>
               <p>Returns all of the items in the collection before the specified count.</p>
-
-              <h4>Params:</h4>
-              <ul class="params">
-                    <li><code>array</code> <span>- (Array)</span> </li>
-                    <li><code>count</code> <span>- (Number)</span> </li>
-              </ul>
+              <pre><code class="javascript">function before(array, count) { ... }</code></pre>
+                <h4>Params:</h4>
+                <ul class="params">
+                      <li><code>array</code> <span>- (Array)</span> </li>
+                      <li><code>count</code> <span>- (Number)</span> </li>
+                </ul>
 
                 <h4>Usage:</h4>
                 <pre><code class="javascript">{{before posts 10}}</code></pre>
@@ -113,11 +113,11 @@
             <article id=capitalize>
               <h2>capitalize</h2>
               <p>Capitalize a string</p>
-
-              <h4>Params:</h4>
-              <ul class="params">
-                    <li><code>string</code> <span>- (String)</span> </li>
-              </ul>
+              <pre><code class="javascript">function capitalize(string) { ... }</code></pre>
+                <h4>Params:</h4>
+                <ul class="params">
+                      <li><code>string</code> <span>- (String)</span> </li>
+                </ul>
 
                 <h4>Usage:</h4>
                 <pre><code class="javascript">{{capitalize firstName}}</code></pre>
@@ -125,11 +125,11 @@
             <article id=commaSeparate>
               <h2>commaSeparate</h2>
               <p>Returns an array list separated by commas</p>
-
-              <h4>Params:</h4>
-              <ul class="params">
-                    <li><code>array</code> <span>- (Array)</span> </li>
-              </ul>
+              <pre><code class="javascript">function commaSeparate(array) { ... }</code></pre>
+                <h4>Params:</h4>
+                <ul class="params">
+                      <li><code>array</code> <span>- (Array)</span> </li>
+                </ul>
 
                 <h4>Usage:</h4>
                 <pre><code class="javascript">{{commaSeparate genres}}</code></pre>
@@ -137,13 +137,13 @@
             <article id=compare>
               <h2>compare</h2>
               <p>Compare two values</p>
-
-              <h4>Params:</h4>
-              <ul class="params">
-                    <li><code>left</code> <span>- (Number)</span> </li>
-                    <li><code>operator</code> <span>- (String)</span> </li>
-                    <li><code>right</code> <span>- (Number)</span> </li>
-              </ul>
+              <pre><code class="javascript">function compare(left, operator, right) { ... }</code></pre>
+                <h4>Params:</h4>
+                <ul class="params">
+                      <li><code>left</code> <span>- (Number)</span> </li>
+                      <li><code>operator</code> <span>- (String)</span> </li>
+                      <li><code>right</code> <span>- (Number)</span> </li>
+                </ul>
 
                 <h4>Usage:</h4>
                 <pre><code class="javascript">{{#compare 1 &#x27;&gt;&#x3D;&#x27; 5}}
@@ -153,11 +153,11 @@
             <article id=dateHasPassed>
               <h2>dateHasPassed</h2>
               <p>Determines if a date is in the past</p>
-
-              <h4>Params:</h4>
-              <ul class="params">
-                    <li><code>date</code> <span>- (Date)</span> </li>
-              </ul>
+              <pre><code class="javascript">function dateHasPassed(date, options) { ... }</code></pre>
+                <h4>Params:</h4>
+                <ul class="params">
+                      <li><code>date</code> <span>- (Date)</span> </li>
+                </ul>
 
                 <h4>Usage:</h4>
                 <pre><code class="javascript">{{#dateHasPassed date}}
@@ -167,12 +167,12 @@
             <article id=defaultValue>
               <h2>defaultValue</h2>
               <p>Returns default value if value is missing</p>
-
-              <h4>Params:</h4>
-              <ul class="params">
-                    <li><code>val</code> <span>- (String)</span> </li>
-                    <li><code>defaultVal</code> <span>- (String)</span> </li>
-              </ul>
+              <pre><code class="javascript">function defaultValue(val, defaultVal) { ... }</code></pre>
+                <h4>Params:</h4>
+                <ul class="params">
+                      <li><code>val</code> <span>- (String)</span> </li>
+                      <li><code>defaultVal</code> <span>- (String)</span> </li>
+                </ul>
 
                 <h4>Usage:</h4>
                 <pre><code class="javascript">{{defaultValue name &#x27;unknown&#x27;}}</code></pre>
@@ -180,22 +180,22 @@
             <article id=eachProperty>
               <h2>eachProperty</h2>
               <p>Returns an array of items with specified property</p>
-
-              <h4>Params:</h4>
-              <ul class="params">
-                    <li><code>context</code> <span>- (Object)</span> </li>
-              </ul>
+              <pre><code class="javascript">function eachProperty(context, options) { ... }</code></pre>
+                <h4>Params:</h4>
+                <ul class="params">
+                      <li><code>context</code> <span>- (Object)</span> </li>
+                </ul>
 
             </article>
             <article id=eq>
               <h2>eq</h2>
               <p>Determines if one value equals another</p>
-
-              <h4>Params:</h4>
-              <ul class="params">
-                    <li><code>val</code> <span>- (String|Number)</span> </li>
-                    <li><code>match</code> <span>- (String|Number)</span> </li>
-              </ul>
+              <pre><code class="javascript">function eq(val, match, options) { ... }</code></pre>
+                <h4>Params:</h4>
+                <ul class="params">
+                      <li><code>val</code> <span>- (String|Number)</span> </li>
+                      <li><code>match</code> <span>- (String|Number)</span> </li>
+                </ul>
 
                 <h4>Usage:</h4>
                 <pre><code class="javascript">{{#eq &#x27;one&#x27; &#x27;two&#x27;}}
@@ -205,11 +205,11 @@
             <article id=exists>
               <h2>exists</h2>
               <p>Determine if value exists</p>
-
-              <h4>Params:</h4>
-              <ul class="params">
-                    <li><code>val</code> <span>- (String)</span> </li>
-              </ul>
+              <pre><code class="javascript">function exists(val, options) { ... }</code></pre>
+                <h4>Params:</h4>
+                <ul class="params">
+                      <li><code>val</code> <span>- (String)</span> </li>
+                </ul>
 
                 <h4>Usage:</h4>
                 <pre><code class="javascript">{{#exists someValue}}
@@ -219,12 +219,12 @@
             <article id=first>
               <h2>first</h2>
               <p>Returns a sliced array from 0 to a specified position</p>
-
-              <h4>Params:</h4>
-              <ul class="params">
-                    <li><code>array</code> <span>- (Array)</span> </li>
-                    <li><code>count</code> <span>- (Number)</span> </li>
-              </ul>
+              <pre><code class="javascript">function first(array, count) { ... }</code></pre>
+                <h4>Params:</h4>
+                <ul class="params">
+                      <li><code>array</code> <span>- (Array)</span> </li>
+                      <li><code>count</code> <span>- (Number)</span> </li>
+                </ul>
 
                 <h4>Usage:</h4>
                 <pre><code class="javascript">{{first posts 10}}</code></pre>
@@ -232,12 +232,12 @@
             <article id=formatDate>
               <h2>formatDate</h2>
               <p>Format a date string with moment</p>
-
-              <h4>Params:</h4>
-              <ul class="params">
-                    <li><code>date</code> <span>- (String)</span> </li>
-                    <li><code>format</code> <span>- (String)</span> (optional)</li>
-              </ul>
+              <pre><code class="javascript">function formatDate(date, format) { ... }</code></pre>
+                <h4>Params:</h4>
+                <ul class="params">
+                      <li><code>date</code> <span>- (String)</span> </li>
+                      <li><code>format</code> <span>- (String)</span> (optional)</li>
+                </ul>
 
                 <h4>Usage:</h4>
                 <pre><code class="javascript">{{formatDate date &#x27;hh:mm&#x27;}}</code></pre>
@@ -245,11 +245,11 @@
             <article id=formatTweet>
               <h2>formatTweet</h2>
               <p>Format a tweet to include links for urls, hashtags and users</p>
-
-              <h4>Params:</h4>
-              <ul class="params">
-                    <li><code>tweet</code> <span>- (String)</span> </li>
-              </ul>
+              <pre><code class="javascript">function formatTweet(tweet) { ... }</code></pre>
+                <h4>Params:</h4>
+                <ul class="params">
+                      <li><code>tweet</code> <span>- (String)</span> </li>
+                </ul>
 
                 <h4>Usage:</h4>
                 <pre><code class="javascript">{{{formatTweet tweetText}}} // Note: triple braces</code></pre>
@@ -257,11 +257,11 @@
             <article id=formatTwitterSearch>
               <h2>formatTwitterSearch</h2>
               <p>Finds hashtags and handles in a string and adds triggers for twitter search</p>
-
-              <h4>Params:</h4>
-              <ul class="params">
-                    <li><code>tweet</code> <span>- (String)</span> </li>
-              </ul>
+              <pre><code class="javascript">function formatTwitterSearch(tweet) { ... }</code></pre>
+                <h4>Params:</h4>
+                <ul class="params">
+                      <li><code>tweet</code> <span>- (String)</span> </li>
+                </ul>
 
                 <h4>Usage:</h4>
                 <pre><code class="javascript">{{{formatTwitterSearch tweet}}} // Note the triple braces</code></pre>
@@ -269,11 +269,11 @@
             <article id=fromNow>
               <h2>fromNow</h2>
               <p>Returns the time difference between now and a specified date</p>
-
-              <h4>Params:</h4>
-              <ul class="params">
-                    <li><code>date</code> <span>- (Date)</span> </li>
-              </ul>
+              <pre><code class="javascript">function fromNow(date) { ... }</code></pre>
+                <h4>Params:</h4>
+                <ul class="params">
+                      <li><code>date</code> <span>- (Date)</span> </li>
+                </ul>
 
                 <h4>Usage:</h4>
                 <pre><code class="javascript">{{fromNow date}}</code></pre>
@@ -281,12 +281,12 @@
             <article id=gt>
               <h2>gt</h2>
               <p>Greater than operator</p>
-
-              <h4>Params:</h4>
-              <ul class="params">
-                    <li><code>a</code> <span>- (String|Number)</span> </li>
-                    <li><code>b</code> <span>- (String|Number)</span> </li>
-              </ul>
+              <pre><code class="javascript">function gt(a, b, options) { ... }</code></pre>
+                <h4>Params:</h4>
+                <ul class="params">
+                      <li><code>a</code> <span>- (String|Number)</span> </li>
+                      <li><code>b</code> <span>- (String|Number)</span> </li>
+                </ul>
 
                 <h4>Usage:</h4>
                 <pre><code class="javascript">{{gt 4 5}}</code></pre>
@@ -294,12 +294,12 @@
             <article id=gte>
               <h2>gte</h2>
               <p>Greater than or equal to operator</p>
-
-              <h4>Params:</h4>
-              <ul class="params">
-                    <li><code>a</code> <span>- (String|Number)</span> </li>
-                    <li><code>b</code> <span>- (String|Number)</span> </li>
-              </ul>
+              <pre><code class="javascript">function gte(a, b, options) { ... }</code></pre>
+                <h4>Params:</h4>
+                <ul class="params">
+                      <li><code>a</code> <span>- (String|Number)</span> </li>
+                      <li><code>b</code> <span>- (String|Number)</span> </li>
+                </ul>
 
                 <h4>Usage:</h4>
                 <pre><code class="javascript">{{gt 4 5}}</code></pre>
@@ -307,12 +307,12 @@
             <article id=gtlt>
               <h2>gtlt</h2>
               <p>Greater than or less than operator</p>
-
-              <h4>Params:</h4>
-              <ul class="params">
-                    <li><code>a</code> <span>- (String|Number)</span> </li>
-                    <li><code>b</code> <span>- (String|Number)</span> </li>
-              </ul>
+              <pre><code class="javascript">function gtlt(a, b, options) { ... }</code></pre>
+                <h4>Params:</h4>
+                <ul class="params">
+                      <li><code>a</code> <span>- (String|Number)</span> </li>
+                      <li><code>b</code> <span>- (String|Number)</span> </li>
+                </ul>
 
                 <h4>Usage:</h4>
                 <pre><code class="javascript">{{gt 4 5}}</code></pre>
@@ -320,13 +320,13 @@
             <article id=hasProperty>
               <h2>hasProperty</h2>
               <p>Returns array of items with specific property</p>
-
-              <h4>Params:</h4>
-              <ul class="params">
-                    <li><code>array</code> <span>- (Array)</span> </li>
-                    <li><code>prop</code> <span>- (String)</span> </li>
-                    <li><code>val</code> <span>- (String)</span> </li>
-              </ul>
+              <pre><code class="javascript">function hasProperty(array, prop, val) { ... }</code></pre>
+                <h4>Params:</h4>
+                <ul class="params">
+                      <li><code>array</code> <span>- (Array)</span> </li>
+                      <li><code>prop</code> <span>- (String)</span> </li>
+                      <li><code>val</code> <span>- (String)</span> </li>
+                </ul>
 
                 <h4>Usage:</h4>
                 <pre><code class="javascript">{{#hasProperty movies &#x27;genre&#x27; &#x27;horror&#x27;}}
@@ -336,11 +336,11 @@
             <article id=lowercase>
               <h2>lowercase</h2>
               <p>Return string in lowercase</p>
-
-              <h4>Params:</h4>
-              <ul class="params">
-                    <li><code>str</code> <span>- (String)</span> </li>
-              </ul>
+              <pre><code class="javascript">function lowercase(str) { ... }</code></pre>
+                <h4>Params:</h4>
+                <ul class="params">
+                      <li><code>str</code> <span>- (String)</span> </li>
+                </ul>
 
                 <h4>Usage:</h4>
                 <pre><code class="javascript">{{lowercase &#x27;TEXT&#x27;}} // Outputs &#x27;text&#x27;</code></pre>
@@ -348,12 +348,12 @@
             <article id=or>
               <h2>or</h2>
               <p>OR operator</p>
-
-              <h4>Params:</h4>
-              <ul class="params">
-                    <li><code>a</code> <span>- (String|Number)</span> </li>
-                    <li><code>b</code> <span>- (String|Number)</span> </li>
-              </ul>
+              <pre><code class="javascript">function or(a, b, options) { ... }</code></pre>
+                <h4>Params:</h4>
+                <ul class="params">
+                      <li><code>a</code> <span>- (String|Number)</span> </li>
+                      <li><code>b</code> <span>- (String|Number)</span> </li>
+                </ul>
 
                 <h4>Usage:</h4>
                 <pre><code class="javascript">{{#or true false}}
@@ -363,12 +363,12 @@
             <article id=pluralize>
               <h2>pluralize</h2>
               <p>Returns a pluralized version of a string</p>
-
-              <h4>Params:</h4>
-              <ul class="params">
-                    <li><code>array</code> <span>- (Array)</span> </li>
-                    <li><code>string</code> <span>- (String)</span> (expects singular version)</li>
-              </ul>
+              <pre><code class="javascript">function pluralize(array, string) { ... }</code></pre>
+                <h4>Params:</h4>
+                <ul class="params">
+                      <li><code>array</code> <span>- (Array)</span> </li>
+                      <li><code>string</code> <span>- (String)</span> (expects singular version)</li>
+                </ul>
 
                 <h4>Usage:</h4>
                 <pre><code class="javascript">{{pluralize 5 &#x27;post&#x27;}} // Outputs &#x27;5 posts&#x27;</code></pre>
@@ -376,11 +376,11 @@
             <article id=round>
               <h2>round</h2>
               <p>Math Round helper</p>
-
-              <h4>Params:</h4>
-              <ul class="params">
-                    <li><code>val</code> <span>- (Number)</span> </li>
-              </ul>
+              <pre><code class="javascript">function round(val) { ... }</code></pre>
+                <h4>Params:</h4>
+                <ul class="params">
+                      <li><code>val</code> <span>- (Number)</span> </li>
+                </ul>
 
                 <h4>Usage:</h4>
                 <pre><code class="javascript">{{round 1.3}} // Outputs 1</code></pre>
@@ -388,11 +388,11 @@
             <article id=slugify>
               <h2>slugify</h2>
               <p>Returns a slugified version of a string</p>
-
-              <h4>Params:</h4>
-              <ul class="params">
-                    <li><code>str</code> <span>- (String)</span> </li>
-              </ul>
+              <pre><code class="javascript">function slugify(str) { ... }</code></pre>
+                <h4>Params:</h4>
+                <ul class="params">
+                      <li><code>str</code> <span>- (String)</span> </li>
+                </ul>
 
                 <h4>Usage:</h4>
                 <pre><code class="javascript">{{slugify &#x27;The Walking Dead&#x27;}} // Outputs &#x27;the-walking-dead&#x27;</code></pre>
@@ -400,11 +400,11 @@
             <article id=stringify>
               <h2>stringify</h2>
               <p>Stringify JSON</p>
-
-              <h4>Params:</h4>
-              <ul class="params">
-                    <li><code>json</code> <span>- (Object)</span> </li>
-              </ul>
+              <pre><code class="javascript">function stringify(json) { ... }</code></pre>
+                <h4>Params:</h4>
+                <ul class="params">
+                      <li><code>json</code> <span>- (Object)</span> </li>
+                </ul>
 
                 <h4>Usage:</h4>
                 <pre><code class="javascript">{{{stringify json}}} // Note the triple braces</code></pre>
@@ -412,11 +412,11 @@
             <article id=today>
               <h2>today</h2>
               <p>Returns todays date</p>
-
-              <h4>Params:</h4>
-              <ul class="params">
-                    <li><code>format</code> <span>- (String)</span> </li>
-              </ul>
+              <pre><code class="javascript">function today(format) { ... }</code></pre>
+                <h4>Params:</h4>
+                <ul class="params">
+                      <li><code>format</code> <span>- (String)</span> </li>
+                </ul>
 
                 <h4>Usage:</h4>
                 <pre><code class="javascript">{{today &#x27;Do MMM, YYYY&#x27;}}</code></pre>
@@ -424,14 +424,14 @@
             <article id=truncate>
               <h2>truncate</h2>
               <p>Truncate a string to specific length</p>
-
-              <h4>Params:</h4>
-              <ul class="params">
-                    <li><code>paragraph</code> <span>- (String)</span> </li>
-                    <li><code>wordwise</code> <span>- (Boolean)</span> </li>
-                    <li><code>max</code> <span>- (Number)</span> </li>
-                    <li><code>tail</code> <span>- (String)</span> </li>
-              </ul>
+              <pre><code class="javascript">function truncate(paragraph, wordwise, max, tail) { ... }</code></pre>
+                <h4>Params:</h4>
+                <ul class="params">
+                      <li><code>paragraph</code> <span>- (String)</span> </li>
+                      <li><code>wordwise</code> <span>- (Boolean)</span> </li>
+                      <li><code>max</code> <span>- (Number)</span> </li>
+                      <li><code>tail</code> <span>- (String)</span> </li>
+                </ul>
 
                 <h4>Usage:</h4>
                 <pre><code class="javascript">{{truncate paragraph true 100 &#x27;...&#x27;}}</code></pre>
@@ -439,11 +439,11 @@
             <article id=uppercase>
               <h2>uppercase</h2>
               <p>Returns string in uppercase</p>
-
-              <h4>Params:</h4>
-              <ul class="params">
-                    <li><code>str</code> <span>- (String)</span> </li>
-              </ul>
+              <pre><code class="javascript">function uppercase(str) { ... }</code></pre>
+                <h4>Params:</h4>
+                <ul class="params">
+                      <li><code>str</code> <span>- (String)</span> </li>
+                </ul>
 
                 <h4>Usage:</h4>
                 <pre><code class="javascript">{{uppercase &#x27;boxfish&#x27;}} // Outputs &#x27;BOXFISH&#x27;</code></pre>

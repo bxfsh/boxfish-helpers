@@ -1,3 +1,12 @@
+/**
+ * [joinObject description]
+ * @method joinObject
+ * @param  {[type]}   array     =             [] [description]
+ * @param  {[type]}   prop      [description]
+ * @param  {[type]}   separator [description]
+ * @param  {[type]}   options   [description]
+ * @return {[type]}             [description]
+ */
 export function joinObject(array = [], prop, separator, options) {
   var ret = '';
 

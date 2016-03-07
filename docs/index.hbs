@@ -31,15 +31,17 @@
             <article id={{name}}>
               <h2>{{name}}</h2>
               <p>{{description}}</p>
-
-              <h4>Params:</h4>
-              <ul class="params">
-                {{#each params}}
-                  {{^eq  name 'options'}}
-                    <li><code>{{name}}</code> <span>- ({{type}})</span> {{description}}</li>
-                  {{/eq}}
-                {{/each}}
-              </ul>
+              <pre><code class="javascript">function {{name}}({{joinObject params 'name' ', '}}) { ... }</code></pre>
+              {{#if params.length}}
+                <h4>Params:</h4>
+                <ul class="params">
+                  {{#each params}}
+                    {{^eq  name 'options'}}
+                      <li><code>{{name}}</code> <span>- ({{type}})</span> {{description}}</li>
+                    {{/eq}}
+                  {{/each}}
+                </ul>
+              {{/if}}
 
               {{#if example}}
                 <h4>Usage:</h4>
