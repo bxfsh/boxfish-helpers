@@ -1,10 +1,9 @@
 /**
- * Returns an array list separated by commas (',')
- * @usage {{commaSeparate array}}
- * @alias {{join array}}
- *
- * @param  {String} string
+ * Returns an array list separated by commas
+ * @method commaSeparate
+ * @param  {Array} array
  * @return {String} Returns the formatted string
+ * @example {{commaSeparate genres}}
  */
 export function commaSeparate(array = []) {
   return array.join(', ');

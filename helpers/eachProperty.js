@@ -1,3 +1,9 @@
+/**
+ * Returns an array of items with specified property
+ * @method eachProperty
+ * @param  {Object} context
+ * @param  {Object} options
+ */
 export function eachProperty(context, options) {
   var content = (function () {
     var results = [];

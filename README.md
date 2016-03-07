@@ -40,8 +40,16 @@ To add a new helper:
 
 1. Create a new file in `helpers`
 ```javascript
-export function HelperName(args, options) {
-  if (args) {
+/**
+ * [HelperName description]
+ * @method HelperName
+ * @param  {[type]} arg1    [description]
+ * @param  {[type]} arg2    [description]
+ * @param  {[type]} options [description]
+ * @example {{helperName arg1 arg2}}
+ */
+export function helperName(arg1, arg2, options) {
+  if (arg1 > arg2) {
     return options.fn(this);
   } else {
     return options.inverse(this);
@@ -54,4 +62,25 @@ export function HelperName(args, options) {
 gulp
 ```
 
-or use `gulp watch` to build in development when you make changes.
+or use `gulp watch` to automatically build when you make changes
+
+3. Create a test file for your helper (in `tests/helpers`) and name it
+`{{helperName}}.test.js`
+
+4. Test your helper
+```javascript
+describe(function() {
+  it('Should do wonderful things', function(done) {
+    // Test
+    done();
+  });
+});
+```
+
+> NOTE You can also run `./create_test.sh {{helperName}}.test.js` to
+automatically generate a test file in `tests/helpers`
+
+5. Run the tests
+```shell
+gulp test
+```

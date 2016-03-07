@@ -1,10 +1,9 @@
 /**
  * Finds hashtags and handles in a string and adds triggers for twitter search
- *
- * NOTE: This helper requires triple brackets {{{formatTwitterSearch tweet}}}
- *
  * @method formatTwitterSearch
  * @param  {String} tweet
+ * @return {String} Returns formatted tweet
+ * @example {{{formatTwitterSearch tweet}}} // Note the triple braces
  */
 export function formatTwitterSearch(tweet) {
   try {

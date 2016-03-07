@@ -1,3 +1,14 @@
+/**
+ * Returns array of items with specific property
+ * @method hasProperty
+ * @param  {Array} array
+ * @param  {String} prop
+ * @param  {String} val
+ * @return {Array}
+ * @example {{#hasProperty movies 'genre' 'horror'}}
+ *   // Horror Movies
+ * {{/hasProperty}}
+ */
 export function hasProperty(array, prop, val) {
   var ret = '';
 

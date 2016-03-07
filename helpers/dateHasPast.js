@@ -1,3 +1,13 @@
+/**
+ * Determines if a date is in the past
+ * @method dateHasPast
+ * @param  {Date} date
+ * @param  {Object} options
+ * @return {Boolean} Returns boolean result
+ * @example {{#dateHasPast date}}
+ *   // Do Something
+ * {{/dateHasPast}}
+ */
 export function dateHasPast(date, options) {
 
   if (typeof moment === 'undefined') {

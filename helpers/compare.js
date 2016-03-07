@@ -1,12 +1,13 @@
 /**
  * Compare two values
- * @usage {{#compare 1 '>' 2 }} returns false
- * @usage {{^compare 2 '===' 1 }} returns true
- *
+ * @method compare
  * @param  {Number} left
  * @param  {String} operator
  * @param  {Number} right
- * @return {Boolean}
+ * @return {Boolean} Returns boolean result
+ * @example {{#compare 1 '>=' 5}}
+ *   // Do Something
+ * {{/compare}}
  */
 export function compare(left, operator = '===', right, options) {
   if (arguments.length < 3) {

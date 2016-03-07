@@ -1,7 +1,9 @@
 /**
  * Capitalize a string
- * @param  {[String]} string
- * @return {[String]} Returns the capitalized string
+ * @method capitalize
+ * @param  {String} string
+ * @return {String} Returns the capitalized string
+ * @example {{capitalize firstName}}
  */
 export function capitalize(string = '') {
   string = string.toLowerCase();

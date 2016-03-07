@@ -1,10 +1,9 @@
 /**
  * Format a tweet to include links for urls, hashtags and users
- *
- * NOTE: This helper requires triple brackets {{{formatTweet tweet}}}
- *
+ * @method formatTweet
  * @param  {String} tweet
  * @return {String} Returns the formatted tweet
+ * @example {{{formatTweet tweetText}}} // Note: triple braces
  */
 export function formatTweet(tweet) {
   try {

@@ -48,11 +48,13 @@ exports.truncate = truncate;
 exports.uppercase = uppercase;
 /**
  * Returns all of the items in the collection after the specified count.
- * @usage {{after array count}}
  *
- * @param  {Array}  array - Collection
+ * @method after
+ * @param  {Array} array - Collection
  * @param  {Number} count - Number of items to exclude
  * @return {Array} Array excluding the number of items specified
+ *
+ * @example {{after posts 5}}
  */
 function after() {
   var array = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
@@ -61,6 +63,18 @@ function after() {
   return array.slice(count);
 }
 
+/**
+ * And operator helper
+ * @method and
+ * @param  {String} a
+ * @param  {String} b
+ * @param  {Object} options
+ * @return {Boolean} Returns boolean value
+ *
+ * @example {{#and isAdmin isLoggedIn}}
+ *   // Do Something
+ * {{/and}}
+ */
 function and(a, b, options) {
   if (a && b) {
     return options.fn(this);
@@ -69,6 +83,19 @@ function and(a, b, options) {
   }
 }
 
+/**
+ * Determines if an array contains an element with specified value
+ *
+ * @method arrayContains
+ * @param  {Array} array
+ * @param  {String} value
+ * @param  {Object} options
+ * @return {Boolean} Returns boolean value
+ *
+ * @example {{#arrayContains countries 'Ireland'}}
+ *   // Do Something
+ * {{/arrayContains}}
+ */
 function arrayContains() {
   var array = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
   var value = arguments.length <= 1 || arguments[1] === undefined ? '' : arguments[1];
@@ -84,13 +111,13 @@ function arrayContains() {
 };
 
 /**
- * Returns all of the items in the collection before the specified
- * count.
- * @usage {{before array count}}
- *
+ * Returns all of the items in the collection before the specified count.
+ * @method before
  * @param  {Array}  array
- * @param  {Integer} count
- * @return {[type]}
+ * @param  {Number} count
+ * @return {Array} Returns sliced array
+ *
+ * @example {{before posts 10}}
  */
 function before() {
   var array = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
@@ -101,8 +128,10 @@ function before() {
 
 /**
  * Capitalize a string
- * @param  {[String]} string
- * @return {[String]} Returns the capitalized string
+ * @method capitalize
+ * @param  {String} string
+ * @return {String} Returns the capitalized string
+ * @example {{capitalize firstName}}
  */
 function capitalize() {
   var string = arguments.length <= 0 || arguments[0] === undefined ? '' : arguments[0];
@@ -115,12 +144,11 @@ function capitalize() {
 }
 
 /**
- * Returns an array list separated by commas (',')
- * @usage {{commaSeparate array}}
- * @alias {{join array}}
- *
- * @param  {String} string
+ * Returns an array list separated by commas
+ * @method commaSeparate
+ * @param  {Array} array
  * @return {String} Returns the formatted string
+ * @example {{commaSeparate genres}}
  */
 function commaSeparate() {
   var array = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
@@ -130,13 +158,14 @@ function commaSeparate() {
 
 /**
  * Compare two values
- * @usage {{#compare 1 '>' 2 }} returns false
- * @usage {{^compare 2 '===' 1 }} returns true
- *
+ * @method compare
  * @param  {Number} left
  * @param  {String} operator
  * @param  {Number} right
- * @return {Boolean}
+ * @return {Boolean} Returns boolean result
+ * @example {{#compare 1 '>=' 5}}
+ *   // Do Something
+ * {{/compare}}
  */
 function compare(left) {
   var operator = arguments.length <= 1 || arguments[1] === undefined ? '===' : arguments[1];
@@ -204,6 +233,16 @@ function compare(left) {
   }
 }
 
+/**
+ * Determines if a date is in the past
+ * @method dateHasPast
+ * @param  {Date} date
+ * @param  {Object} options
+ * @return {Boolean} Returns boolean result
+ * @example {{#dateHasPast date}}
+ *   // Do Something
+ * {{/dateHasPast}}
+ */
 function dateHasPast(date, options) {
 
   if (typeof moment === 'undefined') {
@@ -221,10 +260,24 @@ function dateHasPast(date, options) {
   }
 }
 
+/**
+ * Returns default value if value is missing
+ * @method defaultValue
+ * @param  {String} val
+ * @param  {String} defaultVal
+ * @return {String} Returns string
+ * @example {{defaultValue name 'unknown'}}
+ */
 function defaultValue(val, defaultVal) {
   return val ? val : defaultVal;
 }
 
+/**
+ * Returns an array of items with specified property
+ * @method eachProperty
+ * @param  {Object} context
+ * @param  {Object} options
+ */
 function eachProperty(context, options) {
   var content = function () {
     var results = [];
@@ -242,8 +295,43 @@ function eachProperty(context, options) {
   return content.join('');
 }
 
-function eq() {}
+/**
+ * Determines if one value equals another
+ * @method eq
+ * @param  {String|Number} val
+ * @param  {String|Number} match
+ * @param  {Object} options [description]
+ * @return {Boolean}
+ * @example {{#eq 'one' 'two'}}
+ *    // Do Something
+ * {{/eq}}
+ */
+function eq() {
+  var val = arguments.length <= 0 || arguments[0] === undefined ? '' : arguments[0];
+  var match = arguments.length <= 1 || arguments[1] === undefined ? '' : arguments[1];
+  var options = arguments[2];
 
+
+  if (typeof val === 'string') val = val.toLowerCase();
+  if (typeof match === 'string') match = match.toLowerCase();
+
+  if (val === match) {
+    return options.fn(this);
+  } else {
+    return options.inverse(this);
+  }
+}
+
+/**
+ * Determine if value exists
+ * @method exists
+ * @param  {String} val
+ * @param  {Object} options
+ * @return {Boolean} Returns boolean value
+ * @example {{#exists someValue}}
+ *   // Do Something
+ * {{/exists}}
+ */
 function exists(val, options) {
   if (typeof val !== 'undefined') {
     return options.fn(this);
@@ -252,6 +340,14 @@ function exists(val, options) {
   }
 }
 
+/**
+ * Returns a sliced array from 0 to a specified position
+ * @method first
+ * @param  {Array} array
+ * @param  {Number} count
+ * @return {Array} Returns sliced array
+ * @example {{first posts 10}}
+ */
 function first() {
   var array = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
   var count = arguments[1];
@@ -272,11 +368,13 @@ function foreach(array, options) {
 
 /**
  * Format a date string with moment
- * @usage {{formatDate date 'MM Do, YYYY'}}
+ * @method formatDate
  *
  * @param  {String} date
  * @param  {String} format (optional)
  * @return {String} Returns the formatted date
+ *
+ * @example {{formatDate date 'hh:mm'}}
  */
 function formatDate(date, format) {
 
@@ -297,11 +395,10 @@ function formatDate(date, format) {
 
 /**
  * Format a tweet to include links for urls, hashtags and users
- *
- * NOTE: This helper requires triple brackets {{{formatTweet tweet}}}
- *
+ * @method formatTweet
  * @param  {String} tweet
  * @return {String} Returns the formatted tweet
+ * @example {{{formatTweet tweetText}}} // Note: triple braces
  */
 function formatTweet(tweet) {
   try {
@@ -316,11 +413,10 @@ function formatTweet(tweet) {
 
 /**
  * Finds hashtags and handles in a string and adds triggers for twitter search
- *
- * NOTE: This helper requires triple brackets {{{formatTwitterSearch tweet}}}
- *
  * @method formatTwitterSearch
  * @param  {String} tweet
+ * @return {String} Returns formatted tweet
+ * @example {{{formatTwitterSearch tweet}}} // Note the triple braces
  */
 function formatTwitterSearch(tweet) {
   try {
@@ -338,6 +434,13 @@ function formatTwitterSearch(tweet) {
   }
 }
 
+/**
+ * Returns the time difference between now and a specified date
+ * @method fromNow
+ * @param  {Date} date
+ * @return {Date} Returns time difference
+ * @example {{fromNow date}}
+ */
 function fromNow(date) {
   if (typeof moment === 'undefined') {
     console.warn('Moment.js is required for the \'fromNow\' helper');
@@ -349,6 +452,15 @@ function fromNow(date) {
   return moment(date).fromNow();
 }
 
+/**
+ * Greater than operator
+ * @method gt
+ * @param  {String|Number} a
+ * @param  {String|Number} b
+ * @param  {Object} options
+ * @return {[type]}
+ * @example {{gt 4 5}}
+ */
 function gt(a, b, options) {
   if (a > b) {
     return options.fn(this);
@@ -357,6 +469,15 @@ function gt(a, b, options) {
   }
 }
 
+/**
+ * Greater than or equal to operator
+ * @method gte
+ * @param  {String|Number} a
+ * @param  {String|Number} b
+ * @param  {Object} options
+ * @return {[type]}
+ * @example {{gt 4 5}}
+ */
 function gte(a, b, options) {
   if (a >= b) {
     return options.fn(this);
@@ -365,6 +486,15 @@ function gte(a, b, options) {
   }
 }
 
+/**
+ * Greater than or less than operator
+ * @method gtlt
+ * @param  {String|Number} a
+ * @param  {String|Number} b
+ * @param  {Object} options
+ * @return {[type]}
+ * @example {{gt 4 5}}
+ */
 function gtlt(a, b, options) {
   if (a > b || a < b) {
     return options.fn(this);
@@ -373,6 +503,17 @@ function gtlt(a, b, options) {
   }
 }
 
+/**
+ * Returns array of items with specific property
+ * @method hasProperty
+ * @param  {Array} array
+ * @param  {String} prop
+ * @param  {String} val
+ * @return {Array}
+ * @example {{#hasProperty movies 'genre' 'horror'}}
+ *   // Horror Movies
+ * {{/hasProperty}}
+ */
 function hasProperty(array, prop, val) {
   var ret = '';
 
@@ -428,6 +569,13 @@ function joinObject() {
   return ret;
 }
 
+/**
+ * Return string in lowercase
+ * @method lowercase
+ * @param  {String} str
+ * @return {String} Returns string in lowercase
+ * @example {{lowercase 'TEXT'}} // Outputs 'text'
+ */
 function lowercase(str) {
   if (!str || typeof str !== 'stirng') return '';
   return str.toLowerCase();
@@ -481,19 +629,32 @@ function numeral(number, format) {
   return numeral(number).format(format);
 }
 
+/**
+ * OR operator
+ * @method or
+ * @param  {String|Number} a
+ * @param  {String|Number} b
+ * @param  {Object} options [description]
+ * @return {Boolean}
+ * @example {{#or true false}}
+ *   // Do Something
+ * {{/or}}
+ */
 function or(a, b, options) {
   if (a || b) {
     return options.fn(this);
   } else {
     return options.inverse(this);
   }
-};
+}
 
 /**
  * Returns a pluralized version of a string
+ * @method pluralize
  * @param  {Array} array
- * @param  {String} string (expects singular version of the string, e.g 'keyword')
- * @return {String} Returns the number o
+ * @param  {String} string (expects singular version)
+ * @return {String} Returns pluralized word
+ * @example {{pluralize 5 'post'}} // Outputs '5 posts'
  */
 function pluralize(array, string) {
   var length = 1;
@@ -517,10 +678,24 @@ function removeUnderscores() {
   return string.replace(/\_/ig, ' ');
 }
 
+/**
+ * Math Round helper
+ * @method round
+ * @param  {Number} val
+ * @return {Number} Returns rounded value
+ * @example {{round 1.3}} // Outputs 1
+ */
 function round(val) {
   return Math.round(val);
 }
 
+/**
+ * Returns a slugified version of a string
+ * @method slugify
+ * @param  {String} str
+ * @return {String}
+ * @example {{slugify 'The Walking Dead'}} // Outputs 'the-walking-dead'
+ */
 function slugify(str) {
   if (typeof str !== 'string') {
     console.warn('[Helpers] \'slugify\' parameter should be a string');
@@ -530,11 +705,18 @@ function slugify(str) {
   return str.toLowerCase().replace(/\s+/ig, '-').replace(',', '');
 }
 
+/**
+ * Stringify JSON
+ * @method stringify
+ * @param  {Object} json
+ * @return {String} returns stringified JSON
+ * @example {{{stringify json}}} // Note the triple braces
+ */
 function stringify() {
   var json = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 
-  return JSON.stringify(json);
-};
+  return JSON.stringify(json, null, 2);
+}
 
 function tmdb(url, size, options) {
   if (arguments.length <= 2) size = null;
@@ -560,34 +742,58 @@ function tmdb(url, size, options) {
   }
 }
 
+/**
+ * Returns todays date
+ * @method today
+ * @param  {String} format
+ * @return {Date} Returns todays date
+ * @example {{today 'Do MMM, YYYY'}}
+ */
 function today() {
   var format = arguments.length <= 0 || arguments[0] === undefined ? 'lll' : arguments[0];
 
   return moment().format(format);
 }
 
+/**
+ * Truncate a string to specific length
+ * @method truncate
+ * @param  {String} paragraph
+ * @param  {Boolean} wordwise
+ * @param  {Number} max
+ * @param  {String} tail
+ * @return {String} Returns the truncated string
+ * @example {{truncate paragraph true 100 '...'}}
+ */
 function truncate() {
-  var val = arguments.length <= 0 || arguments[0] === undefined ? '' : arguments[0];
+  var paragraph = arguments.length <= 0 || arguments[0] === undefined ? '' : arguments[0];
   var wordwise = arguments[1];
   var max = arguments[2];
   var tail = arguments.length <= 3 || arguments[3] === undefined ? ' ...' : arguments[3];
 
 
   max = parseInt(max, 10);
-  if (!max) return val;
-  if (val.length <= max) return val;
+  if (!max) return paragraph;
+  if (paragraph.length <= max) return paragraph;
 
-  val = val.substr(0, max);
+  paragraph = paragraph.substr(0, max);
   if (wordwise) {
-    var lastspace = val.lastIndexOf(' ');
+    var lastspace = paragraph.lastIndexOf(' ');
     if (lastspace != -1) {
-      val = val.substr(0, lastspace);
+      paragraph = paragraph.substr(0, lastspace);
     }
   }
 
-  return val + tail;
+  return paragraph + tail;
 }
 
+/**
+ * Returns string in uppercase
+ * @method uppercase
+ * @param  {String} str
+ * @return {String} Returns uppercase string
+ * @example {{uppercase 'boxfish'}} // Outputs 'BOXFISH'
+ */
 function uppercase(str) {
   if (typeof str === 'string') {
     console.warn('[Helper] Uppercase helper parameter should be a string');

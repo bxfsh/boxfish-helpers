@@ -1,3 +1,10 @@
+/**
+ * Returns the time difference between now and a specified date
+ * @method fromNow
+ * @param  {Date} date
+ * @return {Date} Returns time difference
+ * @example {{fromNow date}}
+ */
 export function fromNow(date) {
   if (typeof moment === 'undefined') {
     console.warn('Moment.js is required for the \'fromNow\' helper');

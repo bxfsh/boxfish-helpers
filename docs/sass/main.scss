@@ -1,0 +1,145 @@
+$sidebar-width: 260px;
+$header-height: 60px;
+
+//=======================================//
+
+html, body {
+  font-family: 'PT Sans', sans-serif;
+  font-size: 100%;
+  line-height: 1.65;
+}
+
+a,
+a:visited,
+a:focus {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+code, kbd, pre, samp {
+  max-width: 800px;
+  font-size: 14px;
+}
+
+code {
+  border-radius: 4px;
+}
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+input[type="search"] {
+  padding: 1em;
+  font-size: 1em;
+  width: 100%;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+}
+
+header {
+  width: 100%;
+  background: #FF6E6E;
+  color: white;
+  padding: 1em;
+
+  > span {
+    opacity: 0.6;
+    font-style: italic;
+    font-size: 0.9em;
+  }
+
+  > a {
+    position: relative;
+    float: right;
+    top: 3px;
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+
+  aside {
+    min-width: $sidebar-width;
+    border-right: 1px solid #eee;
+    position: fixed;
+    top: 0;
+    background: ghostwhite;
+    width: $sidebar-width;
+    box-shadow: 2px 0 6px 0 rgba(0, 0, 0, 0.05);
+
+    ul {
+      height: calc(100vh - #{$header-height});
+      overflow-y: scroll;
+      list-style: none;
+      padding: 0;
+      padding-bottom: 5em;
+      margin: 0;
+      text-align: right;
+
+      li {
+
+        &:first-child {
+          border-top: 1px solid #eee;
+        }
+
+        a {
+          display: block;
+          font-size: 0.9em;
+          padding: 0.75em 2em;
+          border-bottom: 1px solid #eee;
+          color: #252525;
+
+          &:hover {
+            background: white;
+          }
+
+          &.active {
+            color: #FF6E6E;
+          }
+        }
+      }
+    }
+  }
+
+  section {
+    max-width: calc(100% - #{$sidebar-width});
+    flex: 1;
+    background: lighten(#f4f4f7, 2%);
+    margin-left: $sidebar-width;
+
+    h1 {
+      text-align: center;
+      padding: 0.75em;
+      border-bottom: 1px solid #eee;
+    }
+
+    article {
+      padding: 4em 23%;
+      border-bottom: 1px solid #eee;
+      transition: background 0.1s ease;
+
+      ul.params li > span {
+        color: #A8A8AB;
+      }
+
+      &:hover {
+        background: white;
+      }
+
+      h2 {
+        font-size: 1.6em;
+      }
+    }
+  }
+}
+
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+}

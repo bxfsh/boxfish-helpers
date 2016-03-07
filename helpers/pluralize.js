@@ -1,8 +1,10 @@
 /**
  * Returns a pluralized version of a string
+ * @method pluralize
  * @param  {Array} array
- * @param  {String} string (expects singular version of the string, e.g 'keyword')
- * @return {String} Returns the number o
+ * @param  {String} string (expects singular version)
+ * @return {String} Returns pluralized word
+ * @example {{pluralize 5 'post'}} // Outputs '5 posts'
  */
 export function pluralize(array, string) {
   var length = 1;

@@ -1,10 +1,12 @@
 /**
  * Format a date string with moment
- * @usage {{formatDate date 'MM Do, YYYY'}}
+ * @method formatDate
  *
  * @param  {String} date
  * @param  {String} format (optional)
  * @return {String} Returns the formatted date
+ *
+ * @example {{formatDate date 'hh:mm'}}
  */
 export function formatDate(date, format) {
 

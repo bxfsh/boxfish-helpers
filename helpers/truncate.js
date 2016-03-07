@@ -1,16 +1,26 @@
-export function truncate(val = '', wordwise, max, tail = ' ...') {
+/**
+ * Truncate a string to specific length
+ * @method truncate
+ * @param  {String} paragraph
+ * @param  {Boolean} wordwise
+ * @param  {Number} max
+ * @param  {String} tail
+ * @return {String} Returns the truncated string
+ * @example {{truncate paragraph true 100 '...'}}
+ */
+export function truncate(paragraph = '', wordwise, max, tail = ' ...') {
 
   max = parseInt(max, 10);
-  if (!max) return val;
-  if (val.length <= max) return val;
+  if (!max) return paragraph;
+  if (paragraph.length <= max) return paragraph;
 
-  val = val.substr(0, max);
+  paragraph = paragraph.substr(0, max);
   if (wordwise) {
-    let lastspace = val.lastIndexOf(' ');
+    let lastspace = paragraph.lastIndexOf(' ');
     if (lastspace != -1) {
-      val = val.substr(0, lastspace);
+      paragraph = paragraph.substr(0, lastspace);
     }
   }
 
-  return val + tail;
+  return paragraph + tail;
 }
