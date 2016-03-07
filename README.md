@@ -33,13 +33,17 @@ for (var helper in BoxfishHelpers) {
 }
 ```
 
+## Docs
+Docs for helpers coming soon.
+
 ## Contributing
-The helper functions are located in `./helpers` as individual ES6 JavasScript files.
+The helper functions are located in `./helpers` as individual ES6 JavaScript files.
 
 To add a new helper:
 
-1. Create a new file in `helpers`
+1. Create a new js file in `helpers`
 ```javascript
+<<<<<<< HEAD
 /**
  * [HelperName description]
  * @method HelperName
@@ -48,7 +52,7 @@ To add a new helper:
  * @param  {[type]} options [description]
  * @example {{helperName arg1 arg2}}
  */
-export function helperName(arg1, arg2, options) {
+export function helperName(arg1 = 4, arg2 = 5, options) {
   if (arg1 > arg2) {
     return options.fn(this);
   } else {
