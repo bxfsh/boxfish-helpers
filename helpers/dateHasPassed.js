@@ -1,17 +1,17 @@
 /**
  * Determines if a date is in the past
- * @method dateHasPast
+ * @method dateHasPassed
  * @param  {Date} date
  * @param  {Object} options
  * @return {Boolean} Returns boolean result
- * @example {{#dateHasPast date}}
+ * @example {{#dateHasPassed date}}
  *   // Do Something
- * {{/dateHasPast}}
+ * {{/dateHasPassed}}
  */
-export function dateHasPast(date, options) {
+export function dateHasPassed(date, options) {
 
   if (typeof moment === 'undefined') {
-    console.warn('Moment.js is required for \'dateHasPast\' helper');
+    console.warn('Moment.js is required for \'dateHasPassed\' helper');
     return;
   }
 

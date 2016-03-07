@@ -26,7 +26,7 @@
             <li><a href="#capitalize">capitalize</a></li>
             <li><a href="#commaSeparate">commaSeparate</a></li>
             <li><a href="#compare">compare</a></li>
-            <li><a href="#dateHasPast">dateHasPast</a></li>
+            <li><a href="#dateHasPassed">dateHasPassed</a></li>
             <li><a href="#defaultValue">defaultValue</a></li>
             <li><a href="#eachProperty">eachProperty</a></li>
             <li><a href="#eq">eq</a></li>
@@ -64,6 +64,7 @@
                     <li><code>count</code> <span>- (Number)</span> - Number of items to exclude</li>
               </ul>
 
+                <h4>Usage:</h4>
                 <pre><code class="javascript">{{after posts 5}}</code></pre>
             </article>
             <article id=and>
@@ -76,6 +77,7 @@
                     <li><code>b</code> <span>- (String)</span> </li>
               </ul>
 
+                <h4>Usage:</h4>
                 <pre><code class="javascript">{{#and isAdmin isLoggedIn}}
 // Do Something
 {{/and}}</code></pre>
@@ -90,6 +92,7 @@
                     <li><code>value</code> <span>- (String)</span> </li>
               </ul>
 
+                <h4>Usage:</h4>
                 <pre><code class="javascript">{{#arrayContains countries &#x27;Ireland&#x27;}}
 // Do Something
 {{/arrayContains}}</code></pre>
@@ -104,6 +107,7 @@
                     <li><code>count</code> <span>- (Number)</span> </li>
               </ul>
 
+                <h4>Usage:</h4>
                 <pre><code class="javascript">{{before posts 10}}</code></pre>
             </article>
             <article id=capitalize>
@@ -115,6 +119,7 @@
                     <li><code>string</code> <span>- (String)</span> </li>
               </ul>
 
+                <h4>Usage:</h4>
                 <pre><code class="javascript">{{capitalize firstName}}</code></pre>
             </article>
             <article id=commaSeparate>
@@ -126,6 +131,7 @@
                     <li><code>array</code> <span>- (Array)</span> </li>
               </ul>
 
+                <h4>Usage:</h4>
                 <pre><code class="javascript">{{commaSeparate genres}}</code></pre>
             </article>
             <article id=compare>
@@ -139,12 +145,13 @@
                     <li><code>right</code> <span>- (Number)</span> </li>
               </ul>
 
+                <h4>Usage:</h4>
                 <pre><code class="javascript">{{#compare 1 &#x27;&gt;&#x3D;&#x27; 5}}
 // Do Something
 {{/compare}}</code></pre>
             </article>
-            <article id=dateHasPast>
-              <h2>dateHasPast</h2>
+            <article id=dateHasPassed>
+              <h2>dateHasPassed</h2>
               <p>Determines if a date is in the past</p>
 
               <h4>Params:</h4>
@@ -152,9 +159,10 @@
                     <li><code>date</code> <span>- (Date)</span> </li>
               </ul>
 
-                <pre><code class="javascript">{{#dateHasPast date}}
+                <h4>Usage:</h4>
+                <pre><code class="javascript">{{#dateHasPassed date}}
 // Do Something
-{{/dateHasPast}}</code></pre>
+{{/dateHasPassed}}</code></pre>
             </article>
             <article id=defaultValue>
               <h2>defaultValue</h2>
@@ -166,6 +174,7 @@
                     <li><code>defaultVal</code> <span>- (String)</span> </li>
               </ul>
 
+                <h4>Usage:</h4>
                 <pre><code class="javascript">{{defaultValue name &#x27;unknown&#x27;}}</code></pre>
             </article>
             <article id=eachProperty>
@@ -188,6 +197,7 @@
                     <li><code>match</code> <span>- (String|Number)</span> </li>
               </ul>
 
+                <h4>Usage:</h4>
                 <pre><code class="javascript">{{#eq &#x27;one&#x27; &#x27;two&#x27;}}
 // Do Something
 {{/eq}}</code></pre>
@@ -201,6 +211,7 @@
                     <li><code>val</code> <span>- (String)</span> </li>
               </ul>
 
+                <h4>Usage:</h4>
                 <pre><code class="javascript">{{#exists someValue}}
 // Do Something
 {{/exists}}</code></pre>
@@ -215,6 +226,7 @@
                     <li><code>count</code> <span>- (Number)</span> </li>
               </ul>
 
+                <h4>Usage:</h4>
                 <pre><code class="javascript">{{first posts 10}}</code></pre>
             </article>
             <article id=formatDate>
@@ -227,6 +239,7 @@
                     <li><code>format</code> <span>- (String)</span> (optional)</li>
               </ul>
 
+                <h4>Usage:</h4>
                 <pre><code class="javascript">{{formatDate date &#x27;hh:mm&#x27;}}</code></pre>
             </article>
             <article id=formatTweet>
@@ -238,6 +251,7 @@
                     <li><code>tweet</code> <span>- (String)</span> </li>
               </ul>
 
+                <h4>Usage:</h4>
                 <pre><code class="javascript">{{{formatTweet tweetText}}} // Note: triple braces</code></pre>
             </article>
             <article id=formatTwitterSearch>
@@ -249,6 +263,7 @@
                     <li><code>tweet</code> <span>- (String)</span> </li>
               </ul>
 
+                <h4>Usage:</h4>
                 <pre><code class="javascript">{{{formatTwitterSearch tweet}}} // Note the triple braces</code></pre>
             </article>
             <article id=fromNow>
@@ -260,6 +275,7 @@
                     <li><code>date</code> <span>- (Date)</span> </li>
               </ul>
 
+                <h4>Usage:</h4>
                 <pre><code class="javascript">{{fromNow date}}</code></pre>
             </article>
             <article id=gt>
@@ -272,6 +288,7 @@
                     <li><code>b</code> <span>- (String|Number)</span> </li>
               </ul>
 
+                <h4>Usage:</h4>
                 <pre><code class="javascript">{{gt 4 5}}</code></pre>
             </article>
             <article id=gte>
@@ -284,6 +301,7 @@
                     <li><code>b</code> <span>- (String|Number)</span> </li>
               </ul>
 
+                <h4>Usage:</h4>
                 <pre><code class="javascript">{{gt 4 5}}</code></pre>
             </article>
             <article id=gtlt>
@@ -296,6 +314,7 @@
                     <li><code>b</code> <span>- (String|Number)</span> </li>
               </ul>
 
+                <h4>Usage:</h4>
                 <pre><code class="javascript">{{gt 4 5}}</code></pre>
             </article>
             <article id=hasProperty>
@@ -309,6 +328,7 @@
                     <li><code>val</code> <span>- (String)</span> </li>
               </ul>
 
+                <h4>Usage:</h4>
                 <pre><code class="javascript">{{#hasProperty movies &#x27;genre&#x27; &#x27;horror&#x27;}}
 // Horror Movies
 {{/hasProperty}}</code></pre>
@@ -322,6 +342,7 @@
                     <li><code>str</code> <span>- (String)</span> </li>
               </ul>
 
+                <h4>Usage:</h4>
                 <pre><code class="javascript">{{lowercase &#x27;TEXT&#x27;}} // Outputs &#x27;text&#x27;</code></pre>
             </article>
             <article id=or>
@@ -334,6 +355,7 @@
                     <li><code>b</code> <span>- (String|Number)</span> </li>
               </ul>
 
+                <h4>Usage:</h4>
                 <pre><code class="javascript">{{#or true false}}
 // Do Something
 {{/or}}</code></pre>
@@ -348,6 +370,7 @@
                     <li><code>string</code> <span>- (String)</span> (expects singular version)</li>
               </ul>
 
+                <h4>Usage:</h4>
                 <pre><code class="javascript">{{pluralize 5 &#x27;post&#x27;}} // Outputs &#x27;5 posts&#x27;</code></pre>
             </article>
             <article id=round>
@@ -359,6 +382,7 @@
                     <li><code>val</code> <span>- (Number)</span> </li>
               </ul>
 
+                <h4>Usage:</h4>
                 <pre><code class="javascript">{{round 1.3}} // Outputs 1</code></pre>
             </article>
             <article id=slugify>
@@ -370,6 +394,7 @@
                     <li><code>str</code> <span>- (String)</span> </li>
               </ul>
 
+                <h4>Usage:</h4>
                 <pre><code class="javascript">{{slugify &#x27;The Walking Dead&#x27;}} // Outputs &#x27;the-walking-dead&#x27;</code></pre>
             </article>
             <article id=stringify>
@@ -381,6 +406,7 @@
                     <li><code>json</code> <span>- (Object)</span> </li>
               </ul>
 
+                <h4>Usage:</h4>
                 <pre><code class="javascript">{{{stringify json}}} // Note the triple braces</code></pre>
             </article>
             <article id=today>
@@ -392,6 +418,7 @@
                     <li><code>format</code> <span>- (String)</span> </li>
               </ul>
 
+                <h4>Usage:</h4>
                 <pre><code class="javascript">{{today &#x27;Do MMM, YYYY&#x27;}}</code></pre>
             </article>
             <article id=truncate>
@@ -406,6 +433,7 @@
                     <li><code>tail</code> <span>- (String)</span> </li>
               </ul>
 
+                <h4>Usage:</h4>
                 <pre><code class="javascript">{{truncate paragraph true 100 &#x27;...&#x27;}}</code></pre>
             </article>
             <article id=uppercase>
@@ -417,6 +445,7 @@
                     <li><code>str</code> <span>- (String)</span> </li>
               </ul>
 
+                <h4>Usage:</h4>
                 <pre><code class="javascript">{{uppercase &#x27;boxfish&#x27;}} // Outputs &#x27;BOXFISH&#x27;</code></pre>
             </article>
         </div>

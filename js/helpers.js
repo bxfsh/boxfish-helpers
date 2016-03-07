@@ -13,7 +13,7 @@ exports.before = before;
 exports.capitalize = capitalize;
 exports.commaSeparate = commaSeparate;
 exports.compare = compare;
-exports.dateHasPast = dateHasPast;
+exports.dateHasPassed = dateHasPassed;
 exports.defaultValue = defaultValue;
 exports.eachProperty = eachProperty;
 exports.eq = eq;
@@ -235,18 +235,18 @@ function compare(left) {
 
 /**
  * Determines if a date is in the past
- * @method dateHasPast
+ * @method dateHasPassed
  * @param  {Date} date
  * @param  {Object} options
  * @return {Boolean} Returns boolean result
- * @example {{#dateHasPast date}}
+ * @example {{#dateHasPassed date}}
  *   // Do Something
- * {{/dateHasPast}}
+ * {{/dateHasPassed}}
  */
-function dateHasPast(date, options) {
+function dateHasPassed(date, options) {
 
   if (typeof moment === 'undefined') {
-    console.warn('Moment.js is required for \'dateHasPast\' helper');
+    console.warn('Moment.js is required for \'dateHasPassed\' helper');
     return;
   }
 
