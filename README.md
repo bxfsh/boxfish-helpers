@@ -1,7 +1,8 @@
-![Boxfish](https://s3.amazonaws.com/cdn.boxfish.com/logos/boxfish-blue.png)
-
 # Boxfish Helpers
 Reusable Mustache / Handlebars helpers for Boxfish projects.
+
+## Docs
+Docs can be found here: http://bxfsh.github.io/boxfish-helpers/
 
 ## Installation
 Install using Bower:
@@ -26,22 +27,16 @@ for (var helper in BoxfishHelpers) {
 
 Handlebars
 ```javascript
-for (var helper in BoxfishHelpers) {
-  if (typeof BoxfishHelpers[helper] === 'function') {
-    Handlebars.registerHelper(helper, BoxfishHelpers[helper]);
-  }
-}
+// Registers all helpers at once
+Handlebars.registerHelper(BoxfishHelpers);
 ```
-
-## Docs
-Docs can be found here: http://bxfsh.github.io/boxfish-helpers/
 
 ## Contributing
 The helper functions are located in `./helpers` as individual ES6 JavaScript files.
 
 To add a new helper:
 
-1. Create a new js file in `helpers`
+* Create a new js file in `helpers`
 ```javascript
 /**
  * Helper description
@@ -60,17 +55,17 @@ export function helperName(arg1 = 4, arg2 = 5, options) {
 }
 ```
 
-2. Run Gulp to build the helpers:
+* Run Gulp to build the helpers:
 ```shell
 gulp
 ```
 
 or use `gulp watch` to automatically build when you make changes
 
-3. Create a test file for your helper (in `tests/helpers`) and name it
+* Create a test file for your helper (in `tests/helpers`) and name it
 `{{helperName}}.test.js`
 
-4. Test your helper
+* Test your helper
 ```javascript
 describe(function() {
   it('Should do wonderful things', function(done) {
@@ -83,7 +78,7 @@ describe(function() {
 > NOTE You can also run `./create_test.sh {{helperName}}.test.js` to
 automatically generate a test file in `tests/helpers`
 
-5. Run the tests
+* Run the tests
 ```shell
 gulp test
 ```
