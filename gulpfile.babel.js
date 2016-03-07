@@ -13,7 +13,7 @@ import livereload from 'gulp-livereload';
 import mocha from 'gulp-mocha';
 
 gulp.task('default', ['clean', 'babel', 'browserify', 'sass-docs']);
-gulp.task('build', ['clean', 'babel', 'browserify', 'min']);
+gulp.task('build', ['default', 'min']);
 gulp.task('watch', () => {
   gulp.watch('helpers/*.js', ['default']);
   gulp.watch('docs/sass/*.scss', ['sass-docs']);

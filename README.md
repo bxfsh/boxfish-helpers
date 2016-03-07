@@ -37,8 +37,8 @@ To add a new helper:
 /**
  * Helper description
  * @method HelperName
- * @param  {Type} arg1 (required) - description 
- * @param  {Type} arg2 (required) - description 
+ * @param  {Type} arg1 (required) - description
+ * @param  {Type} arg2 (required) - description
  * @param  {Object]} options
  * @example {{helperName arg1 arg2}}
  */
@@ -77,3 +77,16 @@ describe(function() {
 ```shell
 gulp test
 ```
+
+### Gulp Tasks
+
+* `gulp default`
+clean > babel > browserify > sass-docs
+
+* `gulp build`
+default > min
+
+* `gulp watch`
+'helpers/*.js' > default
+'docs/sass/*.scss' > sass-docs
+'docs/index.hbs' > docs
