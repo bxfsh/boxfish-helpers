@@ -4,6 +4,8 @@ Reusable Mustache / Handlebars helpers for Boxfish projects.
 ## Docs
 Docs can be found here: http://bxfsh.github.io/boxfish-helpers/
 
+Use `npm run deploy` to update the github docs if changes have been made to the docs folder.
+
 ## Installation
 Install using Bower:
 ```shell
