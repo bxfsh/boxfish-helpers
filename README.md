@@ -34,7 +34,7 @@ for (var helper in BoxfishHelpers) {
 ```
 
 ## Docs
-Docs for helpers coming soon.
+Docs can be found here: http://bxfsh.github.io/boxfish-helpers/
 
 ## Contributing
 The helper functions are located in `./helpers` as individual ES6 JavaScript files.
