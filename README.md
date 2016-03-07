@@ -20,7 +20,11 @@ With this the helpers can be registered to Handlebars, CanJS or Mustache.
 
 CanJS
 ```javascript
-can.mustache.registerHelper(BoxfishHelpers);
+if ('BoxfishHelpers' in window) {
+  for (var helper in BoxfishHelpers) {
+    can.mustache.registerHelper(helper, BoxfishHelpers[helper]);  
+  }
+}
 ```
 
 Handlebars
