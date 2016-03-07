@@ -43,13 +43,12 @@ To add a new helper:
 
 1. Create a new js file in `helpers`
 ```javascript
-<<<<<<< HEAD
 /**
- * [HelperName description]
+ * Helper description
  * @method HelperName
- * @param  {[type]} arg1    [description]
- * @param  {[type]} arg2    [description]
- * @param  {[type]} options [description]
+ * @param  {Type} arg1 (required) - description 
+ * @param  {Type} arg2 (required) - description 
+ * @param  {Object]} options
  * @example {{helperName arg1 arg2}}
  */
 export function helperName(arg1 = 4, arg2 = 5, options) {
