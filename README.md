@@ -18,11 +18,7 @@ With this the helpers can be registered to Handlebars, CanJS or Mustache.
 
 CanJS
 ```javascript
-for (var helper in BoxfishHelpers) {
-  if (typeof BoxfishHelpers[helper] === 'function') {
-    can.mustache.registerHelper(helper, BoxfishHelpers[helper]);
-  }
-}
+can.mustache.registerHelper(BoxfishHelpers);
 ```
 
 Handlebars
@@ -75,8 +71,7 @@ describe(function() {
 });
 ```
 
-> NOTE You can also run `./create_test.sh {{helperName}}.test.js` to
-automatically generate a test file in `tests/helpers`
+> Note: You can run `./create_test.sh {{helperName}}.test.js` to automatically generate a test file in `tests/helpers`.
 
 * Run the tests
 ```shell
