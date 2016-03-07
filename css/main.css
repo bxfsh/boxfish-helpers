@@ -1,0 +1,105 @@
+html, body {
+  font-family: 'PT Sans', sans-serif;
+  font-size: 100%;
+  line-height: 1.65; }
+
+a,
+a:visited,
+a:focus {
+  color: inherit;
+  text-decoration: inherit; }
+
+code, kbd, pre, samp {
+  max-width: 800px;
+  font-size: 14px; }
+
+code {
+  border-radius: 4px; }
+
+*,
+::after,
+::before {
+  box-sizing: border-box; }
+
+input[type="search"] {
+  padding: 1em;
+  font-size: 1em;
+  width: 100%;
+  border: none;
+  outline: none;
+  box-sizing: border-box; }
+
+header {
+  width: 100%;
+  background: #FF6E6E;
+  color: white;
+  padding: 1em; }
+  header > span {
+    opacity: 0.6;
+    font-style: italic;
+    font-size: 0.9em; }
+  header > a {
+    position: relative;
+    float: right;
+    top: 3px; }
+
+main {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row; }
+  main aside {
+    min-width: 260px;
+    border-right: 1px solid #eee;
+    position: fixed;
+    top: 0;
+    background: ghostwhite;
+    width: 260px;
+    box-shadow: 2px 0 6px 0 rgba(0, 0, 0, 0.05); }
+    main aside ul {
+      height: calc(100vh - 60px);
+      overflow-y: scroll;
+      list-style: none;
+      padding: 0;
+      padding-bottom: 5em;
+      margin: 0;
+      text-align: right; }
+      main aside ul li:first-child {
+        border-top: 1px solid #eee; }
+      main aside ul li a {
+        display: block;
+        font-size: 0.9em;
+        padding: 0.75em 2em;
+        border-bottom: 1px solid #eee;
+        color: #252525; }
+        main aside ul li a:hover {
+          background: white; }
+        main aside ul li a.active {
+          color: #FF6E6E; }
+  main section {
+    max-width: calc(100% - 260px);
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    background: #fafafb;
+    margin-left: 260px; }
+    main section h1 {
+      text-align: center;
+      padding: 0.75em;
+      border-bottom: 1px solid #eee; }
+    main section article {
+      padding: 4em 23%;
+      border-bottom: 1px solid #eee;
+      transition: background 0.1s ease; }
+      main section article ul.params li > span {
+        color: #A8A8AB; }
+      main section article:hover {
+        background: white; }
+      main section article h2 {
+        font-size: 1.6em; }
+
+.container {
+  max-width: 600px;
+  margin: 0 auto; }

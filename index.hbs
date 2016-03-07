@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Boxfish Helpers</title>
+    <meta name="description" content="Boxfish Helpers">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/tomorrow-night.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js"></script>
+  </head>
+
+  <body>
+    <main>
+      <aside>
+        <header>Boxfish Helpers - <span>(v{{package.version}})</span> <a href="https://github.com/bxfsh/boxfish-helpers"><img src="images/github.svg"></a></header>
+        <ul class="helpers-list">
+          {{#each helpers}}
+            <li><a href="#{{name}}">{{name}}</a></li>
+          {{/each}}
+        </ul>
+      </aside>
+
+      <section id="helpers">
+        <div class="helpers">
+          {{#each helpers}}
+            <article id={{name}}>
+              <h2>{{name}}</h2>
+              <p>{{description}}</p>
+
+              <h4>Params:</h4>
+              <ul class="params">
+                {{#each params}}
+                  {{^eq  name 'options'}}
+                    <li><code>{{name}}</code> <span>- ({{type}})</span> {{description}}</li>
+                  {{/eq}}
+                {{/each}}
+              </ul>
+
+              {{#if example}}
+                <pre><code class="javascript">{{example}}</code></pre>
+              {{/if}}
+            </article>
+          {{/each}}
+        </div>
+      </section>
+    </main>
+
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
