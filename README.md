@@ -20,7 +20,44 @@ With this the helpers can be registered to Handlebars, CanJS or Mustache.
 
 CanJS
 ```javascript
-can.mustache.registerHelper(BoxfishHelpers);
+if ('BoxfishHelpers' in window) {
+  for (var helper in BoxfishHelpers) {
+    can.mustache.registerSimpleHelper(helper, BoxfishHelpers[helper]);  
+  }
+}
+```
+
+For versions of CanJS <2.3.0, you will have to manually create the `registerSimpleHelper` to auto-compute the arguments of each helper.
+
+```javascript
+;(function(global) {
+
+  if (global.hasOwnProperty('can')) {
+  
+    // Add simpleHelper functionality to compute all helper arguments
+    can.view.simpleHelper = function (fn) {
+      return function () {
+        var realArgs = [];
+        can.each(arguments, function (val, i) {
+          if (i <= arguments.length) {
+            while (val && val.isComputed) {
+              val = val();
+            }
+
+            realArgs.push(val);
+          }
+        });
+
+        return fn.apply(this, realArgs);
+      };
+    };
+
+    // registerSimpleHelper helper
+    can.mustache.registerSimpleHelper = function (name, fn) {
+      can.mustache.registerHelper(name, can.view.simpleHelper(fn));
+    };
+  }
+})(this);
 ```
 
 Handlebars
@@ -52,6 +89,8 @@ export function helperName(arg1 = 4, arg2 = 5, options) {
   }
 }
 ```
+
+> Note: A function comment is required for every helper as the docs are auto-generated.
 
 * Run Gulp to build the helpers:
 ```shell
