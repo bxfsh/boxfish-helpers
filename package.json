@@ -44,6 +44,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.2.0",
     "gulp-uglify": "^1.5.3",
+    "handlebars": "^4.0.5",
     "ink-docstrap": "^1.1.4",
     "jsdoc-babel": "^0.1.0",
     "lodash": "^4.6.1"
