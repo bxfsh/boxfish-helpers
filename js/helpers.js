@@ -43,6 +43,7 @@ exports.round = round;
 exports.slugify = slugify;
 exports.stringify = stringify;
 exports.tmdb = tmdb;
+exports.toLowerCase = toLowerCase;
 exports.today = today;
 exports.truncate = truncate;
 exports.uppercase = uppercase;
@@ -551,6 +552,15 @@ function itemAtIndex(array, index, format) {
   return array[index];
 }
 
+/**
+ * [joinObject description]
+ * @method joinObject
+ * @param  {[type]}   array     =             [] [description]
+ * @param  {[type]}   prop      [description]
+ * @param  {[type]}   separator [description]
+ * @param  {[type]}   options   [description]
+ * @return {[type]}             [description]
+ */
 function joinObject() {
   var array = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
   var prop = arguments[1];
@@ -740,6 +750,21 @@ function tmdb(url, size, options) {
       return url;
     } else return url;
   }
+}
+
+/**
+ * Returns a string in lower case
+ *
+ * @method toLowerCase
+ * @param  {string} str - string to lower cas
+ * @return {string} string lower case string
+ *
+ * @example {{toLowerCase 'Some String'}}
+ */
+function toLowerCase() {
+  var str = arguments.length <= 0 || arguments[0] === undefined ? '' : arguments[0];
+
+  return str.toLowerCase();
 }
 
 /**

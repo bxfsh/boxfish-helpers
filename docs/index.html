@@ -40,12 +40,14 @@
             <li><a href="#gte">gte</a></li>
             <li><a href="#gtlt">gtlt</a></li>
             <li><a href="#hasProperty">hasProperty</a></li>
+            <li><a href="#joinObject">joinObject</a></li>
             <li><a href="#lowercase">lowercase</a></li>
             <li><a href="#or">or</a></li>
             <li><a href="#pluralize">pluralize</a></li>
             <li><a href="#round">round</a></li>
             <li><a href="#slugify">slugify</a></li>
             <li><a href="#stringify">stringify</a></li>
+            <li><a href="#toLowerCase">toLowerCase</a></li>
             <li><a href="#today">today</a></li>
             <li><a href="#truncate">truncate</a></li>
             <li><a href="#uppercase">uppercase</a></li>
@@ -333,6 +335,18 @@
 // Horror Movies
 {{/hasProperty}}</code></pre>
             </article>
+            <article id=joinObject>
+              <h2>joinObject</h2>
+              <p>[joinObject description]</p>
+              <pre><code class="javascript">function joinObject(array, prop, separator, options) { ... }</code></pre>
+                <h4>Params:</h4>
+                <ul class="params">
+                      <li><code>array</code> <span>- ([type])</span> &#x3D;             [] [description]</li>
+                      <li><code>prop</code> <span>- ([type])</span> [description]</li>
+                      <li><code>separator</code> <span>- ([type])</span> [description]</li>
+                </ul>
+
+            </article>
             <article id=lowercase>
               <h2>lowercase</h2>
               <p>Return string in lowercase</p>
@@ -408,6 +422,18 @@
 
                 <h4>Usage:</h4>
                 <pre><code class="javascript">{{{stringify json}}} // Note the triple braces</code></pre>
+            </article>
+            <article id=toLowerCase>
+              <h2>toLowerCase</h2>
+              <p>Returns a string in lower case</p>
+              <pre><code class="javascript">function toLowerCase(str) { ... }</code></pre>
+                <h4>Params:</h4>
+                <ul class="params">
+                      <li><code>str</code> <span>- (string)</span> - string to lower cas</li>
+                </ul>
+
+                <h4>Usage:</h4>
+                <pre><code class="javascript">{{toLowerCase &#x27;Some String&#x27;}}</code></pre>
             </article>
             <article id=today>
               <h2>today</h2>
