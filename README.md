@@ -22,9 +22,42 @@ CanJS
 ```javascript
 if ('BoxfishHelpers' in window) {
   for (var helper in BoxfishHelpers) {
-    can.mustache.registerHelper(helper, BoxfishHelpers[helper]);  
+    can.mustache.registerSimpleHelper(helper, BoxfishHelpers[helper]);  
   }
 }
+```
+
+For versions of CanJS <2.3.0, you will have to manually create the `registerSimpleHelper` to auto-compute the arguments of each helper.
+
+```javascript
+;(function(global) {
+
+  if (global.hasOwnProperty('can')) {
+  
+  // Add simpleHelper functionality to compute all helper arguments
+  can.view.simpleHelper = function (fn) {
+    return function () {
+      var realArgs = [];
+      can.each(arguments, function (val, i) {
+        if (i <= arguments.length) {
+          while (val && val.isComputed) {
+            val = val();
+          }
+
+          realArgs.push(val);
+        }
+      });
+
+      return fn.apply(this, realArgs);
+    };
+  };
+
+  // registerSimpleHelper helper
+  can.mustache.registerSimpleHelper = function (name, fn) {
+    can.mustache.registerHelper(name, can.view.simpleHelper(fn));
+  };
+}
+})(this);
 ```
 
 Handlebars
