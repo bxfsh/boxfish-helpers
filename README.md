@@ -78,16 +78,16 @@ To add a new helper:
  * @method HelperName
  * @param  {Type} arg1 (required) - description
  * @param  {Type} arg2 (required) - description
- * @param  {Object]} options
+ * @param  {Object} options
  * @example {{helperName arg1 arg2}}
  */
-export function helperName(arg1 = 4, arg2 = 5, options) {
+module.exports.helperName = function helperName(arg1 = 4, arg2 = 5, options) {
   if (arg1 > arg2) {
     return options.fn(this);
   } else {
     return options.inverse(this);
   }
-}
+};
 ```
 
 > Note: A function comment is required for every helper as the docs are auto-generated.
