@@ -40,7 +40,9 @@
             <li><a href="#gte">gte</a></li>
             <li><a href="#gtlt">gtlt</a></li>
             <li><a href="#hasProperty">hasProperty</a></li>
+            <li><a href="#joinObject">joinObject</a></li>
             <li><a href="#lowercase">lowercase</a></li>
+            <li><a href="#numeral">numeral</a></li>
             <li><a href="#or">or</a></li>
             <li><a href="#pluralize">pluralize</a></li>
             <li><a href="#round">round</a></li>
@@ -333,6 +335,18 @@
 // Horror Movies
 {{/hasProperty}}</code></pre>
             </article>
+            <article id=joinObject>
+              <h2>joinObject</h2>
+              <p>Join object</p>
+              <pre><code class="javascript">function joinObject(array, prop, separator, options) { ... }</code></pre>
+                <h4>Params:</h4>
+                <ul class="params">
+                      <li><code>array</code> <span>- ([type])</span> </li>
+                      <li><code>prop</code> <span>- ([type])</span> </li>
+                      <li><code>separator</code> <span>- ([type])</span> </li>
+                </ul>
+
+            </article>
             <article id=lowercase>
               <h2>lowercase</h2>
               <p>Return string in lowercase</p>
@@ -344,6 +358,19 @@
 
                 <h4>Usage:</h4>
                 <pre><code class="javascript">{{lowercase &#x27;TEXT&#x27;}} // Outputs &#x27;text&#x27;</code></pre>
+            </article>
+            <article id=numeral>
+              <h2>numeral</h2>
+              <p>Numeral.js helper</p>
+              <pre><code class="javascript">function numeral(num, format) { ... }</code></pre>
+                <h4>Params:</h4>
+                <ul class="params">
+                      <li><code>num</code> <span>- (Number)</span> </li>
+                      <li><code>format</code> <span>- (String)</span> - Numeral format (default &#x3D; &#x27;0,0.00&#x27;)</li>
+                </ul>
+
+                <h4>Usage:</h4>
+                <pre><code class="javascript">{{numeral 165000 &#x27;0a&#x27;}} // Output: 165k</code></pre>
             </article>
             <article id=or>
               <h2>or</h2>
