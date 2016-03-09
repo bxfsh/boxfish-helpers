@@ -8,19 +8,23 @@
  *
  * @example {{formatDate date 'hh:mm'}}
  */
-export function formatDate(date, format) {
+module.exports.formatDate = function formatDate(date, format, options) {
 
   if (typeof moment === 'undefined') {
     console.warn('Moment.js is required for the \'formateDate\' helper');
     return;
   }
 
-  const defaultFormat = 'MMM Do, hh:mm a';
+  if (arguments.length === 2) {
+    // format argument missing
+    var format = 'MMM Do, hh:mm a';
+  }
 
   if (!date) date = new Date();
-  format = format || defaultFormat;
 
   date = new Date(date);
 
   return moment(date).format(format);
-}
+};
+
+module.exports.moment = module.exports.formatDate;

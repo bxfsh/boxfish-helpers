@@ -6,7 +6,7 @@
  * @return {String} Returns pluralized word
  * @example {{pluralize 5 'post'}} // Outputs '5 posts'
  */
-export function pluralize(array, string) {
+module.exports.pluralize = function pluralize(array, string) {
   var length = 1;
 
   try {
@@ -22,4 +22,4 @@ export function pluralize(array, string) {
   } catch (err) {
     console.warn(err);
   }
-}
+};

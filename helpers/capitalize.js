@@ -5,10 +5,10 @@
  * @return {String} Returns the capitalized string
  * @example {{capitalize firstName}}
  */
-export function capitalize(string = '') {
+module.exports.capitalize = function capitalize(string = '') {
   string = string.toLowerCase();
 
   return string.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, function (match, index) {
     return match.toUpperCase();
   });
-}
+};

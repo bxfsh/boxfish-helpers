@@ -9,10 +9,10 @@
  *   // Do Something
  * {{/or}}
  */
-export function or(a, b, options) {
+module.exports.or = function or(a, b, options) {
   if (a || b) {
     return options.fn(this);
   } else {
     return options.inverse(this);
   }
-}
+};

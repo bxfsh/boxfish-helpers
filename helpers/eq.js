@@ -9,7 +9,7 @@
  *    // Do Something
  * {{/eq}}
  */
-export function eq(val = '', match = '', options) {
+module.exports.eq = function eq(val = '', match = '', options) {
 
   if (typeof val === 'string') val = val.toLowerCase();
   if (typeof match === 'string') match = match.toLowerCase();
@@ -19,4 +19,5 @@ export function eq(val = '', match = '', options) {
   } else {
     return options.inverse(this);
   }
-}
+
+};

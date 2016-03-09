@@ -6,6 +6,6 @@
  * @return {Array} Returns sliced array
  * @example {{first posts 10}}
  */
-export function first(array = [], count) {
+module.exports.first = function first(array = [], count) {
   return array.slice(0, count);
 };

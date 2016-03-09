@@ -1,3 +1,3 @@
-export function removeUnderscores(string = '') {
+module.exports.removeUnderscores = function removeUnderscores(string = '') {
   return string.replace(/\_/ig, ' ');
-}
+};

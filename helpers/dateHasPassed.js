@@ -8,7 +8,7 @@
  *   // Do Something
  * {{/dateHasPassed}}
  */
-export function dateHasPassed(date, options) {
+module.exports.dateHasPassed = function dateHasPassed(date, options) {
 
   if (typeof moment === 'undefined') {
     console.warn('Moment.js is required for \'dateHasPassed\' helper');
@@ -23,4 +23,7 @@ export function dateHasPassed(date, options) {
   } else {
     return options.inverse(this);
   }
-}
+};
+
+// Alias 'dateHasPast'
+module.exports.dateHasPast = module.exports.dateHasPassed;
