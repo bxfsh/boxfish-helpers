@@ -34,29 +34,29 @@ For versions of CanJS <2.3.0, you will have to manually create the `registerSimp
 
   if (global.hasOwnProperty('can')) {
   
-  // Add simpleHelper functionality to compute all helper arguments
-  can.view.simpleHelper = function (fn) {
-    return function () {
-      var realArgs = [];
-      can.each(arguments, function (val, i) {
-        if (i <= arguments.length) {
-          while (val && val.isComputed) {
-            val = val();
+    // Add simpleHelper functionality to compute all helper arguments
+    can.view.simpleHelper = function (fn) {
+      return function () {
+        var realArgs = [];
+        can.each(arguments, function (val, i) {
+          if (i <= arguments.length) {
+            while (val && val.isComputed) {
+              val = val();
+            }
+
+            realArgs.push(val);
           }
+        });
 
-          realArgs.push(val);
-        }
-      });
-
-      return fn.apply(this, realArgs);
+        return fn.apply(this, realArgs);
+      };
     };
-  };
 
-  // registerSimpleHelper helper
-  can.mustache.registerSimpleHelper = function (name, fn) {
-    can.mustache.registerHelper(name, can.view.simpleHelper(fn));
-  };
-}
+    // registerSimpleHelper helper
+    can.mustache.registerSimpleHelper = function (name, fn) {
+      can.mustache.registerHelper(name, can.view.simpleHelper(fn));
+    };
+  }
 })(this);
 ```
 
