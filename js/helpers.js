@@ -1,5 +1,6 @@
 'use strict';
 
+<<<<<<< HEAD
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
@@ -47,6 +48,8 @@ exports.toLowerCase = toLowerCase;
 exports.today = today;
 exports.truncate = truncate;
 exports.uppercase = uppercase;
+=======
+>>>>>>> 1aeb5317ded12fe7ff7dc8eff10f9cd85bb98358
 /**
  * Returns all of the items in the collection after the specified count.
  *
@@ -57,12 +60,12 @@ exports.uppercase = uppercase;
  *
  * @example {{after posts 5}}
  */
-function after() {
+module.exports.after = function after() {
   var array = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
   var count = arguments[1];
 
   return array.slice(count);
-}
+};
 
 /**
  * And operator helper
@@ -76,13 +79,13 @@ function after() {
  *   // Do Something
  * {{/and}}
  */
-function and(a, b, options) {
+module.exports.and = function and(a, b, options) {
   if (a && b) {
     return options.fn(this);
   } else {
     return options.inverse(this);
   }
-}
+};
 
 /**
  * Determines if an array contains an element with specified value
@@ -97,7 +100,7 @@ function and(a, b, options) {
  *   // Do Something
  * {{/arrayContains}}
  */
-function arrayContains() {
+module.exports.arrayContains = function arrayContains() {
   var array = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
   var value = arguments.length <= 1 || arguments[1] === undefined ? '' : arguments[1];
   var options = arguments[2];
@@ -120,12 +123,12 @@ function arrayContains() {
  *
  * @example {{before posts 10}}
  */
-function before() {
+module.exports.before = function before() {
   var array = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
   var count = arguments[1];
 
   return array.slice(0, -count);
-}
+};
 
 /**
  * Capitalize a string
@@ -134,7 +137,7 @@ function before() {
  * @return {String} Returns the capitalized string
  * @example {{capitalize firstName}}
  */
-function capitalize() {
+module.exports.capitalize = function capitalize() {
   var string = arguments.length <= 0 || arguments[0] === undefined ? '' : arguments[0];
 
   string = string.toLowerCase();
@@ -142,7 +145,7 @@ function capitalize() {
   return string.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, function (match, index) {
     return match.toUpperCase();
   });
-}
+};
 
 /**
  * Returns an array list separated by commas
@@ -151,7 +154,7 @@ function capitalize() {
  * @return {String} Returns the formatted string
  * @example {{commaSeparate genres}}
  */
-function commaSeparate() {
+module.exports.commaSeparate = function commaSeparate() {
   var array = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
 
   return array.join(', ');
@@ -168,7 +171,7 @@ function commaSeparate() {
  *   // Do Something
  * {{/compare}}
  */
-function compare(left) {
+module.exports.compare = function compare(left) {
   var operator = arguments.length <= 1 || arguments[1] === undefined ? '===' : arguments[1];
   var right = arguments[2];
   var options = arguments[3];
@@ -214,10 +217,6 @@ function compare(left) {
 
     '>=': function _(l, r) {
       return l >= r;
-    },
-
-    typeof: function _typeof(l, r) {
-      return (typeof l === 'undefined' ? 'undefined' : _typeof2(l)) == r;
     }
   };
 
@@ -232,7 +231,7 @@ function compare(left) {
   } else {
     return options.inverse(this);
   }
-}
+};
 
 /**
  * Determines if a date is in the past
@@ -244,7 +243,7 @@ function compare(left) {
  *   // Do Something
  * {{/dateHasPassed}}
  */
-function dateHasPassed(date, options) {
+module.exports.dateHasPassed = function dateHasPassed(date, options) {
 
   if (typeof moment === 'undefined') {
     console.warn('Moment.js is required for \'dateHasPassed\' helper');
@@ -259,7 +258,10 @@ function dateHasPassed(date, options) {
   } else {
     return options.inverse(this);
   }
-}
+};
+
+// Alias 'dateHasPast'
+module.exports.dateHasPast = module.exports.dateHasPassed;
 
 /**
  * Returns default value if value is missing
@@ -269,9 +271,11 @@ function dateHasPassed(date, options) {
  * @return {String} Returns string
  * @example {{defaultValue name 'unknown'}}
  */
-function defaultValue(val, defaultVal) {
+module.exports.defaultValue = function defaultValue(val, defaultVal) {
   return val ? val : defaultVal;
-}
+};
+
+module.exports.default = module.exports.defaultValue;
 
 /**
  * Returns an array of items with specified property
@@ -279,7 +283,7 @@ function defaultValue(val, defaultVal) {
  * @param  {Object} context
  * @param  {Object} options
  */
-function eachProperty(context, options) {
+module.exports.eachProperty = function eachProperty(context, options) {
   var content = function () {
     var results = [];
     for (var key in context) {
@@ -294,7 +298,7 @@ function eachProperty(context, options) {
   }();
 
   return content.join('');
-}
+};
 
 /**
  * Determines if one value equals another
@@ -307,7 +311,7 @@ function eachProperty(context, options) {
  *    // Do Something
  * {{/eq}}
  */
-function eq() {
+module.exports.eq = function eq() {
   var val = arguments.length <= 0 || arguments[0] === undefined ? '' : arguments[0];
   var match = arguments.length <= 1 || arguments[1] === undefined ? '' : arguments[1];
   var options = arguments[2];
@@ -321,7 +325,7 @@ function eq() {
   } else {
     return options.inverse(this);
   }
-}
+};
 
 /**
  * Determine if value exists
@@ -333,13 +337,13 @@ function eq() {
  *   // Do Something
  * {{/exists}}
  */
-function exists(val, options) {
+module.exports.exists = function exists(val, options) {
   if (typeof val !== 'undefined') {
     return options.fn(this);
   } else {
     return options.inverse(this);
   }
-}
+};
 
 /**
  * Returns a sliced array from 0 to a specified position
@@ -349,14 +353,14 @@ function exists(val, options) {
  * @return {Array} Returns sliced array
  * @example {{first posts 10}}
  */
-function first() {
+module.exports.first = function first() {
   var array = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
   var count = arguments[1];
 
   return array.slice(0, count);
 };
 
-function foreach(array, options) {
+module.exports.foreach = function foreach(array, options) {
 
   if (!array.length) {
     return options.inverse(this);
@@ -365,7 +369,7 @@ function foreach(array, options) {
   return array.map(function (item, index) {
     return options.fn(item);
   }).join('');
-}
+};
 
 /**
  * Format a date string with moment
@@ -377,22 +381,26 @@ function foreach(array, options) {
  *
  * @example {{formatDate date 'hh:mm'}}
  */
-function formatDate(date, format) {
+module.exports.formatDate = function formatDate(date, format, options) {
 
   if (typeof moment === 'undefined') {
     console.warn('Moment.js is required for the \'formateDate\' helper');
     return;
   }
 
-  var defaultFormat = 'MMM Do, hh:mm a';
+  if (arguments.length === 2) {
+    // format argument missing
+    var format = 'MMM Do, hh:mm a';
+  }
 
   if (!date) date = new Date();
-  format = format || defaultFormat;
 
   date = new Date(date);
 
   return moment(date).format(format);
-}
+};
+
+module.exports.moment = module.exports.formatDate;
 
 /**
  * Format a tweet to include links for urls, hashtags and users
@@ -401,7 +409,7 @@ function formatDate(date, format) {
  * @return {String} Returns the formatted tweet
  * @example {{{formatTweet tweetText}}} // Note: triple braces
  */
-function formatTweet(tweet) {
+module.exports.formatTweet = function formatTweet(tweet) {
   try {
     tweet = tweet.replace(/([http|https]+\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}\S*)/ig, "<a href='$1'>$1</a>");
     tweet = tweet.replace(/@(\w{1,15})\b/ig, "<a href='https://twitter.com/$1'>@$1</a>");
@@ -410,7 +418,7 @@ function formatTweet(tweet) {
   } catch (err) {
     console.warn(err);
   }
-}
+};
 
 /**
  * Finds hashtags and handles in a string and adds triggers for twitter search
@@ -419,7 +427,7 @@ function formatTweet(tweet) {
  * @return {String} Returns formatted tweet
  * @example {{{formatTwitterSearch tweet}}} // Note the triple braces
  */
-function formatTwitterSearch(tweet) {
+module.exports.formatTwitterSearch = function formatTwitterSearch(tweet) {
   try {
 
     // Find URLs and return as usual
@@ -433,7 +441,7 @@ function formatTwitterSearch(tweet) {
   } catch (err) {
     console.warn(err);
   }
-}
+};
 
 /**
  * Returns the time difference between now and a specified date
@@ -442,7 +450,7 @@ function formatTwitterSearch(tweet) {
  * @return {Date} Returns time difference
  * @example {{fromNow date}}
  */
-function fromNow(date) {
+module.exports.fromNow = function fromNow(date) {
   if (typeof moment === 'undefined') {
     console.warn('Moment.js is required for the \'fromNow\' helper');
     return;
@@ -451,7 +459,7 @@ function fromNow(date) {
   date = date || new Date();
 
   return moment(date).fromNow();
-}
+};
 
 /**
  * Greater than operator
@@ -462,13 +470,13 @@ function fromNow(date) {
  * @return {[type]}
  * @example {{gt 4 5}}
  */
-function gt(a, b, options) {
+module.exports.gt = function gt(a, b, options) {
   if (a > b) {
     return options.fn(this);
   } else {
     return options.inverse(this);
   }
-}
+};
 
 /**
  * Greater than or equal to operator
@@ -479,13 +487,13 @@ function gt(a, b, options) {
  * @return {[type]}
  * @example {{gt 4 5}}
  */
-function gte(a, b, options) {
+module.exports.gte = function gte(a, b, options) {
   if (a >= b) {
     return options.fn(this);
   } else {
     return options.inverse(this);
   }
-}
+};
 
 /**
  * Greater than or less than operator
@@ -496,13 +504,13 @@ function gte(a, b, options) {
  * @return {[type]}
  * @example {{gt 4 5}}
  */
-function gtlt(a, b, options) {
+module.exports.gtlt = function gtlt(a, b, options) {
   if (a > b || a < b) {
     return options.fn(this);
   } else {
     return options.inverse(this);
   }
-}
+};
 
 /**
  * Returns array of items with specific property
@@ -515,7 +523,7 @@ function gtlt(a, b, options) {
  *   // Horror Movies
  * {{/hasProperty}}
  */
-function hasProperty(array, prop, val) {
+module.exports.hasProperty = function hasProperty(array, prop, val) {
   var ret = '';
 
   for (var i = 0; i < array.length; i++) {
@@ -525,9 +533,9 @@ function hasProperty(array, prop, val) {
   }
 
   return ret;
-}
+};
 
-function hasPropertyLength(array, prop, val, options) {
+module.exports.hasPropertyLength = function hasPropertyLength(array, prop, val, options) {
   var count = 0;
 
   if (!array.length) {
@@ -545,14 +553,15 @@ function hasPropertyLength(array, prop, val, options) {
   } else {
     return options.inverse(this);
   }
-}
+};
 
-function itemAtIndex(array, index, format) {
+module.exports.itemAtIndex = function itemAtIndex(array, index, format) {
   if (!array) return '';
   return array[index];
-}
+};
 
 /**
+<<<<<<< HEAD
  * [joinObject description]
  * @method joinObject
  * @param  {[type]}   array     =             [] [description]
@@ -562,6 +571,17 @@ function itemAtIndex(array, index, format) {
  * @return {[type]}             [description]
  */
 function joinObject() {
+=======
+ * Join object
+ * @method joinObject
+ * @param  {[type]}   array
+ * @param  {[type]}   prop
+ * @param  {[type]}   separator
+ * @param  {[type]}   options
+ * @return {[type]}
+ */
+module.exports.joinObject = function joinObject() {
+>>>>>>> 1aeb5317ded12fe7ff7dc8eff10f9cd85bb98358
   var array = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
   var prop = arguments[1];
   var separator = arguments[2];
@@ -577,7 +597,7 @@ function joinObject() {
   }
 
   return ret;
-}
+};
 
 /**
  * Return string in lowercase
@@ -586,12 +606,12 @@ function joinObject() {
  * @return {String} Returns string in lowercase
  * @example {{lowercase 'TEXT'}} // Outputs 'text'
  */
-function lowercase(str) {
+module.exports.lowercase = function lowercase(str) {
   if (!str || typeof str !== 'stirng') return '';
   return str.toLowerCase();
-}
+};
 
-function math(a, operator, b) {
+module.exports.math = function math(a, operator, b) {
   if (isNaN(parseInt(a)) || isNaN(parseInt(b))) {
     console.warn('Math helper \'a\' and \'b\' parameters MUST be integers.', a, b);
     return;
@@ -609,9 +629,9 @@ function math(a, operator, b) {
     default:
       return;
   }
-}
+};
 
-function numberItemsWithProperty(array, prop, val) {
+module.exports.numberItemsWithProperty = function numberItemsWithProperty(array, prop, val) {
   if (typeof value === 'string') {
     value = value.toLowerCase();
   }
@@ -621,23 +641,33 @@ function numberItemsWithProperty(array, prop, val) {
   });
 
   return array.length > 0 ? array.length : '0';
-}
-
-function numberNotDeleted(array) {
-  return _.filter(array, { deleted: false }).length;
 };
 
-function numeral(number, format) {
-  if (typeof format !== 'string') {
-    format = '0,0.00';
+module.exports.numberNotDeleted = function numberNotDeleted(array) {
+  return _.filter(array, {
+    deleted: false
+  }).length;
+};
 
-    if (number > 10000) {
-      format = '0.0a';
-    }
+/**
+ * Numeral.js helper
+ * @method numeral
+ * @param  {Number} num
+ * @param  {String} format - Numeral format (default = '0,0.00')
+ * @return {String} Returns number is specified format
+ * @example {{numeral 165000 '0a'}} // Output: 165k
+ */
+module.exports.numeral = function () {
+  var num = arguments.length <= 0 || arguments[0] === undefined ? 0 : arguments[0];
+  var format = arguments.length <= 1 || arguments[1] === undefined ? '0,0.00' : arguments[1];
+
+
+  if (num > 10000) {
+    format = '0.0a';
   }
 
-  return numeral(number).format(format);
-}
+  return numeral(num).format(format);
+};
 
 /**
  * OR operator
@@ -650,13 +680,13 @@ function numeral(number, format) {
  *   // Do Something
  * {{/or}}
  */
-function or(a, b, options) {
+module.exports.or = function or(a, b, options) {
   if (a || b) {
     return options.fn(this);
   } else {
     return options.inverse(this);
   }
-}
+};
 
 /**
  * Returns a pluralized version of a string
@@ -666,7 +696,7 @@ function or(a, b, options) {
  * @return {String} Returns pluralized word
  * @example {{pluralize 5 'post'}} // Outputs '5 posts'
  */
-function pluralize(array, string) {
+module.exports.pluralize = function pluralize(array, string) {
   var length = 1;
 
   try {
@@ -680,13 +710,13 @@ function pluralize(array, string) {
   } catch (err) {
     console.warn(err);
   }
-}
+};
 
-function removeUnderscores() {
+module.exports.removeUnderscores = function removeUnderscores() {
   var string = arguments.length <= 0 || arguments[0] === undefined ? '' : arguments[0];
 
   return string.replace(/\_/ig, ' ');
-}
+};
 
 /**
  * Math Round helper
@@ -695,9 +725,9 @@ function removeUnderscores() {
  * @return {Number} Returns rounded value
  * @example {{round 1.3}} // Outputs 1
  */
-function round(val) {
+module.exports.round = function round(val) {
   return Math.round(val);
-}
+};
 
 /**
  * Returns a slugified version of a string
@@ -706,14 +736,14 @@ function round(val) {
  * @return {String}
  * @example {{slugify 'The Walking Dead'}} // Outputs 'the-walking-dead'
  */
-function slugify(str) {
+module.exports.slugify = function slugify(str) {
   if (typeof str !== 'string') {
     console.warn('[Helpers] \'slugify\' parameter should be a string');
     return;
   }
 
   return str.toLowerCase().replace(/\s+/ig, '-').replace(',', '');
-}
+};
 
 /**
  * Stringify JSON
@@ -722,13 +752,13 @@ function slugify(str) {
  * @return {String} returns stringified JSON
  * @example {{{stringify json}}} // Note the triple braces
  */
-function stringify() {
+module.exports.stringify = function stringify() {
   var json = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 
   return JSON.stringify(json, null, 2);
-}
+};
 
-function tmdb(url, size, options) {
+module.exports.tmdb = function tmdb(url, size, options) {
   if (arguments.length <= 2) size = null;
 
   if (!url) return '/images/missing.png';
@@ -750,7 +780,7 @@ function tmdb(url, size, options) {
       return url;
     } else return url;
   }
-}
+};
 
 /**
  * Returns a string in lower case
@@ -774,11 +804,11 @@ function toLowerCase() {
  * @return {Date} Returns todays date
  * @example {{today 'Do MMM, YYYY'}}
  */
-function today() {
+module.exports.today = function today() {
   var format = arguments.length <= 0 || arguments[0] === undefined ? 'lll' : arguments[0];
 
   return moment().format(format);
-}
+};
 
 /**
  * Truncate a string to specific length
@@ -790,7 +820,7 @@ function today() {
  * @return {String} Returns the truncated string
  * @example {{truncate paragraph true 100 '...'}}
  */
-function truncate() {
+module.exports.truncate = function truncate() {
   var paragraph = arguments.length <= 0 || arguments[0] === undefined ? '' : arguments[0];
   var wordwise = arguments[1];
   var max = arguments[2];
@@ -810,7 +840,7 @@ function truncate() {
   }
 
   return paragraph + tail;
-}
+};
 
 /**
  * Returns string in uppercase
@@ -819,9 +849,9 @@ function truncate() {
  * @return {String} Returns uppercase string
  * @example {{uppercase 'boxfish'}} // Outputs 'BOXFISH'
  */
-function uppercase(str) {
+module.exports.uppercase = function uppercase(str) {
   if (typeof str === 'string') {
     console.warn('[Helper] Uppercase helper parameter should be a string');
     return str.toUpperCase();
   }
-}
+};

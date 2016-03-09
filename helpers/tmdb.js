@@ -1,4 +1,4 @@
-export function tmdb(url, size, options) {
+module.exports.tmdb = function tmdb(url, size, options) {
   if (arguments.length <= 2) size = null;
 
   if (!url) return '/images/missing.png';
@@ -23,4 +23,4 @@ export function tmdb(url, size, options) {
     } else return url;
 
   }
-}
+};

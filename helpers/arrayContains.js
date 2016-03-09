@@ -11,7 +11,7 @@
  *   // Do Something
  * {{/arrayContains}}
  */
-export function arrayContains(array = [], value = '', options) {
+module.exports.arrayContains = function arrayContains(array = [], value = '', options) {
   if (!array.length || !value) return;
 
   if (array.indexOf(value) > -1) {

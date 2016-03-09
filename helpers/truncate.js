@@ -8,7 +8,7 @@
  * @return {String} Returns the truncated string
  * @example {{truncate paragraph true 100 '...'}}
  */
-export function truncate(paragraph = '', wordwise, max, tail = ' ...') {
+module.exports.truncate = function truncate(paragraph = '', wordwise, max, tail = ' ...') {
 
   max = parseInt(max, 10);
   if (!max) return paragraph;
@@ -23,4 +23,4 @@ export function truncate(paragraph = '', wordwise, max, tail = ' ...') {
   }
 
   return paragraph + tail;
-}
+};

@@ -5,7 +5,7 @@
  * @return {String} Returns formatted tweet
  * @example {{{formatTwitterSearch tweet}}} // Note the triple braces
  */
-export function formatTwitterSearch(tweet) {
+module.exports.formatTwitterSearch = function formatTwitterSearch(tweet) {
   try {
 
     // Find URLs and return as usual
@@ -16,12 +16,13 @@ export function formatTwitterSearch(tweet) {
 
     // Format hashtags and handles for twitter search
     tweet = tweet.replace(/@(\w{1,15})\b/ig,
-    "<a type='button' data-keyword='@$1' data-trigger='twitter-search'>@$1</a>");
+      "<a type='button' data-keyword='@$1' data-trigger='twitter-search'>@$1</a>");
     tweet = tweet.replace(/#(\w*)\b/ig,
-    "<a type='button' data-keyword='#$1' data-trigger='twitter-search'>#$1</a>");
+      "<a type='button' data-keyword='#$1' data-trigger='twitter-search'>#$1</a>");
 
     return tweet;
   } catch (err) {
     console.warn(err);
   }
-}
+
+};

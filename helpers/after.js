@@ -8,6 +8,6 @@
  *
  * @example {{after posts 5}}
  */
-export function after(array = [], count) {
+module.exports.after = function after(array = [], count) {
   return array.slice(count);
-}
+};

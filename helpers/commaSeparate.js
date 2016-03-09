@@ -5,6 +5,6 @@
  * @return {String} Returns the formatted string
  * @example {{commaSeparate genres}}
  */
-export function commaSeparate(array = []) {
+module.exports.commaSeparate = function commaSeparate(array = []) {
   return array.join(', ');
 };

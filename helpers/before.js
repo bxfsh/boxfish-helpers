@@ -7,6 +7,6 @@
  *
  * @example {{before posts 10}}
  */
-export function before(array = [], count) {
+module.exports.before = function before(array = [], count) {
   return array.slice(0, -count);
-}
+};

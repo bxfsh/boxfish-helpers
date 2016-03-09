@@ -9,7 +9,7 @@
  *   // Do Something
  * {{/compare}}
  */
-export function compare(left, operator = '===', right, options) {
+module.exports.compare = function compare(left, operator = '===', right, options) {
   if (arguments.length < 3) {
     throw new Error('Mustache Helper "compare" needs 2 parameters');
   }
@@ -21,23 +21,37 @@ export function compare(left, operator = '===', right, options) {
   }
 
   var operators = {
-    '==':     function (l, r) {return l == r; },
+    '==': function (l, r) {
+      return l == r;
+    },
 
-    '===':    function (l, r) {return l === r; },
+    '===': function (l, r) {
+      return l === r;
+    },
 
-    '!=':     function (l, r) {return l != r; },
+    '!=': function (l, r) {
+      return l != r;
+    },
 
-    '!==':    function (l, r) {return l !== r; },
+    '!==': function (l, r) {
+      return l !== r;
+    },
 
-    '<':      function (l, r) {return l < r; },
+    '<': function (l, r) {
+      return l < r;
+    },
 
-    '>':      function (l, r) {return l > r; },
+    '>': function (l, r) {
+      return l > r;
+    },
 
-    '<=':     function (l, r) {return l <= r; },
+    '<=': function (l, r) {
+      return l <= r;
+    },
 
-    '>=':     function (l, r) {return l >= r; },
-
-    typeof: function (l, r) {return typeof l == r; },
+    '>=': function (l, r) {
+      return l >= r;
+    },
   };
 
   if (!operators[operator]) {
@@ -51,4 +65,4 @@ export function compare(left, operator = '===', right, options) {
   } else {
     return options.inverse(this);
   }
-}
+};

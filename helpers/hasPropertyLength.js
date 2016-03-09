@@ -1,4 +1,4 @@
-export function hasPropertyLength(array, prop, val, options) {
+module.exports.hasPropertyLength = function hasPropertyLength(array, prop, val, options) {
   var count = 0;
 
   if (!array.length) {
@@ -16,4 +16,4 @@ export function hasPropertyLength(array, prop, val, options) {
   } else {
     return options.inverse(this);
   }
-}
+};

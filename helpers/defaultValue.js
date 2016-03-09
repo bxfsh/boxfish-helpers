@@ -6,6 +6,8 @@
  * @return {String} Returns string
  * @example {{defaultValue name 'unknown'}}
  */
-export function defaultValue(val, defaultVal) {
+module.exports.defaultValue = function defaultValue(val, defaultVal) {
   return val ? val : defaultVal;
-}
+};
+
+module.exports.default = module.exports.defaultValue;

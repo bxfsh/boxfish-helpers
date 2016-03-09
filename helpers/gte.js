@@ -7,10 +7,10 @@
  * @return {[type]}
  * @example {{gt 4 5}}
  */
-export function gte(a, b, options) {
+module.exports.gte = function gte(a, b, options) {
   if (a >= b) {
     return options.fn(this);
   } else {
     return options.inverse(this);
   }
-}
+};

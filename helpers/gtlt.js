@@ -7,10 +7,11 @@
  * @return {[type]}
  * @example {{gt 4 5}}
  */
-export function gtlt(a, b, options) {
+module.exports.gtlt = function gtlt(a, b, options) {
   if (a > b || a < b) {
     return options.fn(this);
   } else {
     return options.inverse(this);
   }
-}
+
+};

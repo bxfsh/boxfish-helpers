@@ -1,13 +1,13 @@
 /**
- * [joinObject description]
+ * Join object
  * @method joinObject
- * @param  {[type]}   array     =             [] [description]
- * @param  {[type]}   prop      [description]
- * @param  {[type]}   separator [description]
- * @param  {[type]}   options   [description]
- * @return {[type]}             [description]
+ * @param  {[type]}   array
+ * @param  {[type]}   prop
+ * @param  {[type]}   separator
+ * @param  {[type]}   options
+ * @return {[type]}
  */
-export function joinObject(array = [], prop, separator, options) {
+module.exports.joinObject = function joinObject(array = [], prop, separator, options) {
   var ret = '';
 
   for (var i = 0; i < array.length; i++) {
@@ -19,4 +19,4 @@ export function joinObject(array = [], prop, separator, options) {
   }
 
   return ret;
-}
+};

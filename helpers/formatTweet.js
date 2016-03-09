@@ -5,7 +5,7 @@
  * @return {String} Returns the formatted tweet
  * @example {{{formatTweet tweetText}}} // Note: triple braces
  */
-export function formatTweet(tweet) {
+module.exports.formatTweet = function formatTweet(tweet) {
   try {
     tweet = tweet.replace(
       /([http|https]+\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}\S*)/ig,
@@ -17,4 +17,4 @@ export function formatTweet(tweet) {
   } catch (err) {
     console.warn(err);
   }
-}
+};

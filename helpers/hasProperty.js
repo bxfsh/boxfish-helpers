@@ -9,7 +9,7 @@
  *   // Horror Movies
  * {{/hasProperty}}
  */
-export function hasProperty(array, prop, val) {
+module.exports.hasProperty = function hasProperty(array, prop, val) {
   var ret = '';
 
   for (var i = 0; i < array.length; i++) {
@@ -19,4 +19,4 @@ export function hasProperty(array, prop, val) {
   }
 
   return ret;
-}
+};
