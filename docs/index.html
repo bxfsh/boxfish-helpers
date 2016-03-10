@@ -17,7 +17,7 @@
   <body>
     <main>
       <aside>
-        <header>Boxfish Helpers - <span>(v0.1.0)</span> <a href="https://github.com/bxfsh/boxfish-helpers"><img src="images/github.svg"></a></header>
+        <header>Boxfish Helpers - <span>(v0.1.1)</span> <a href="https://github.com/bxfsh/boxfish-helpers"><img src="images/github.svg"></a></header>
         <ul class="helpers-list">
             <li><a href="#after">after</a></li>
             <li><a href="#and">and</a></li>
@@ -30,7 +30,6 @@
             <li><a href="#defaultValue">defaultValue</a></li>
             <li><a href="#eachProperty">eachProperty</a></li>
             <li><a href="#eq">eq</a></li>
-            <li><a href="#exists">exists</a></li>
             <li><a href="#first">first</a></li>
             <li><a href="#formatDate">formatDate</a></li>
             <li><a href="#formatTweet">formatTweet</a></li>
@@ -40,11 +39,17 @@
             <li><a href="#gte">gte</a></li>
             <li><a href="#gtlt">gtlt</a></li>
             <li><a href="#hasProperty">hasProperty</a></li>
+            <li><a href="#hasPropertyLength">hasPropertyLength</a></li>
+            <li><a href="#itemAtIndex">itemAtIndex</a></li>
             <li><a href="#joinObject">joinObject</a></li>
             <li><a href="#lowercase">lowercase</a></li>
+            <li><a href="#math">math</a></li>
+            <li><a href="#numberItemsWithProperty">numberItemsWithProperty</a></li>
+            <li><a href="#numberNotDeleted">numberNotDeleted</a></li>
             <li><a href="#numeral">numeral</a></li>
             <li><a href="#or">or</a></li>
             <li><a href="#pluralize">pluralize</a></li>
+            <li><a href="#removeUnderscores">removeUnderscores</a></li>
             <li><a href="#round">round</a></li>
             <li><a href="#slugify">slugify</a></li>
             <li><a href="#stringify">stringify</a></li>
@@ -62,8 +67,8 @@
               <pre><code class="javascript">function after(array, count) { ... }</code></pre>
                 <h4>Params:</h4>
                 <ul class="params">
-                      <li><code>array</code> <span>- (Array)</span> - Collection</li>
-                      <li><code>count</code> <span>- (Number)</span> - Number of items to exclude</li>
+                      <li><span>(Array) - </span><code>array</code> - Collection</li>
+                      <li><span>(Number) - </span><code>count</code> - Number of items to exclude</li>
                 </ul>
 
                 <h4>Usage:</h4>
@@ -75,8 +80,8 @@
               <pre><code class="javascript">function and(a, b, options) { ... }</code></pre>
                 <h4>Params:</h4>
                 <ul class="params">
-                      <li><code>a</code> <span>- (String)</span> </li>
-                      <li><code>b</code> <span>- (String)</span> </li>
+                      <li><span>(String) - </span><code>a</code> </li>
+                      <li><span>(String) - </span><code>b</code> </li>
                 </ul>
 
                 <h4>Usage:</h4>
@@ -90,8 +95,8 @@
               <pre><code class="javascript">function arrayContains(array, value, options) { ... }</code></pre>
                 <h4>Params:</h4>
                 <ul class="params">
-                      <li><code>array</code> <span>- (Array)</span> </li>
-                      <li><code>value</code> <span>- (String)</span> </li>
+                      <li><span>(Array) - </span><code>array</code> </li>
+                      <li><span>(String) - </span><code>value</code> </li>
                 </ul>
 
                 <h4>Usage:</h4>
@@ -105,8 +110,8 @@
               <pre><code class="javascript">function before(array, count) { ... }</code></pre>
                 <h4>Params:</h4>
                 <ul class="params">
-                      <li><code>array</code> <span>- (Array)</span> </li>
-                      <li><code>count</code> <span>- (Number)</span> </li>
+                      <li><span>(Array) - </span><code>array</code> </li>
+                      <li><span>(Number) - </span><code>count</code> </li>
                 </ul>
 
                 <h4>Usage:</h4>
@@ -118,7 +123,7 @@
               <pre><code class="javascript">function capitalize(string) { ... }</code></pre>
                 <h4>Params:</h4>
                 <ul class="params">
-                      <li><code>string</code> <span>- (String)</span> </li>
+                      <li><span>(String) - </span><code>string</code> </li>
                 </ul>
 
                 <h4>Usage:</h4>
@@ -130,7 +135,7 @@
               <pre><code class="javascript">function commaSeparate(array) { ... }</code></pre>
                 <h4>Params:</h4>
                 <ul class="params">
-                      <li><code>array</code> <span>- (Array)</span> </li>
+                      <li><span>(Array) - </span><code>array</code> </li>
                 </ul>
 
                 <h4>Usage:</h4>
@@ -142,9 +147,9 @@
               <pre><code class="javascript">function compare(left, operator, right) { ... }</code></pre>
                 <h4>Params:</h4>
                 <ul class="params">
-                      <li><code>left</code> <span>- (Number)</span> </li>
-                      <li><code>operator</code> <span>- (String)</span> </li>
-                      <li><code>right</code> <span>- (Number)</span> </li>
+                      <li><span>(Number) - </span><code>left</code> </li>
+                      <li><span>(String) - </span><code>operator</code> </li>
+                      <li><span>(Number) - </span><code>right</code> </li>
                 </ul>
 
                 <h4>Usage:</h4>
@@ -158,7 +163,7 @@
               <pre><code class="javascript">function dateHasPassed(date, options) { ... }</code></pre>
                 <h4>Params:</h4>
                 <ul class="params">
-                      <li><code>date</code> <span>- (Date)</span> </li>
+                      <li><span>(Date) - </span><code>date</code> </li>
                 </ul>
 
                 <h4>Usage:</h4>
@@ -172,8 +177,8 @@
               <pre><code class="javascript">function defaultValue(val, defaultVal) { ... }</code></pre>
                 <h4>Params:</h4>
                 <ul class="params">
-                      <li><code>val</code> <span>- (String)</span> </li>
-                      <li><code>defaultVal</code> <span>- (String)</span> </li>
+                      <li><span>(String) - </span><code>val</code> </li>
+                      <li><span>(String) - </span><code>defaultVal</code> </li>
                 </ul>
 
                 <h4>Usage:</h4>
@@ -185,7 +190,7 @@
               <pre><code class="javascript">function eachProperty(context, options) { ... }</code></pre>
                 <h4>Params:</h4>
                 <ul class="params">
-                      <li><code>context</code> <span>- (Object)</span> </li>
+                      <li><span>(Object) - </span><code>context</code> </li>
                 </ul>
 
             </article>
@@ -195,8 +200,8 @@
               <pre><code class="javascript">function eq(val, match, options) { ... }</code></pre>
                 <h4>Params:</h4>
                 <ul class="params">
-                      <li><code>val</code> <span>- (String|Number)</span> </li>
-                      <li><code>match</code> <span>- (String|Number)</span> </li>
+                      <li><span>(String|Number) - </span><code>val</code> </li>
+                      <li><span>(String|Number) - </span><code>match</code> </li>
                 </ul>
 
                 <h4>Usage:</h4>
@@ -204,28 +209,14 @@
 // Do Something
 {{/eq}}</code></pre>
             </article>
-            <article id=exists>
-              <h2>exists</h2>
-              <p>Determine if value exists</p>
-              <pre><code class="javascript">function exists(val, options) { ... }</code></pre>
-                <h4>Params:</h4>
-                <ul class="params">
-                      <li><code>val</code> <span>- (String)</span> </li>
-                </ul>
-
-                <h4>Usage:</h4>
-                <pre><code class="javascript">{{#exists someValue}}
-// Do Something
-{{/exists}}</code></pre>
-            </article>
             <article id=first>
               <h2>first</h2>
               <p>Returns a sliced array from 0 to a specified position</p>
               <pre><code class="javascript">function first(array, count) { ... }</code></pre>
                 <h4>Params:</h4>
                 <ul class="params">
-                      <li><code>array</code> <span>- (Array)</span> </li>
-                      <li><code>count</code> <span>- (Number)</span> </li>
+                      <li><span>(Array) - </span><code>array</code> </li>
+                      <li><span>(Number) - </span><code>count</code> </li>
                 </ul>
 
                 <h4>Usage:</h4>
@@ -233,12 +224,12 @@
             </article>
             <article id=formatDate>
               <h2>formatDate</h2>
-              <p>Format a date string with moment</p>
+              <p>Format a date string with moment.js</p>
               <pre><code class="javascript">function formatDate(date, format) { ... }</code></pre>
                 <h4>Params:</h4>
                 <ul class="params">
-                      <li><code>date</code> <span>- (String)</span> </li>
-                      <li><code>format</code> <span>- (String)</span> (optional)</li>
+                      <li><span>(String) - </span><code>date</code> </li>
+                      <li><span>(String) - </span><code>format</code> (optional)</li>
                 </ul>
 
                 <h4>Usage:</h4>
@@ -250,7 +241,7 @@
               <pre><code class="javascript">function formatTweet(tweet) { ... }</code></pre>
                 <h4>Params:</h4>
                 <ul class="params">
-                      <li><code>tweet</code> <span>- (String)</span> </li>
+                      <li><span>(String) - </span><code>tweet</code> </li>
                 </ul>
 
                 <h4>Usage:</h4>
@@ -262,7 +253,7 @@
               <pre><code class="javascript">function formatTwitterSearch(tweet) { ... }</code></pre>
                 <h4>Params:</h4>
                 <ul class="params">
-                      <li><code>tweet</code> <span>- (String)</span> </li>
+                      <li><span>(String) - </span><code>tweet</code> </li>
                 </ul>
 
                 <h4>Usage:</h4>
@@ -274,7 +265,7 @@
               <pre><code class="javascript">function fromNow(date) { ... }</code></pre>
                 <h4>Params:</h4>
                 <ul class="params">
-                      <li><code>date</code> <span>- (Date)</span> </li>
+                      <li><span>(Date) - </span><code>date</code> </li>
                 </ul>
 
                 <h4>Usage:</h4>
@@ -286,8 +277,8 @@
               <pre><code class="javascript">function gt(a, b, options) { ... }</code></pre>
                 <h4>Params:</h4>
                 <ul class="params">
-                      <li><code>a</code> <span>- (String|Number)</span> </li>
-                      <li><code>b</code> <span>- (String|Number)</span> </li>
+                      <li><span>(String|Number) - </span><code>a</code> </li>
+                      <li><span>(String|Number) - </span><code>b</code> </li>
                 </ul>
 
                 <h4>Usage:</h4>
@@ -299,8 +290,8 @@
               <pre><code class="javascript">function gte(a, b, options) { ... }</code></pre>
                 <h4>Params:</h4>
                 <ul class="params">
-                      <li><code>a</code> <span>- (String|Number)</span> </li>
-                      <li><code>b</code> <span>- (String|Number)</span> </li>
+                      <li><span>(String|Number) - </span><code>a</code> </li>
+                      <li><span>(String|Number) - </span><code>b</code> </li>
                 </ul>
 
                 <h4>Usage:</h4>
@@ -312,8 +303,8 @@
               <pre><code class="javascript">function gtlt(a, b, options) { ... }</code></pre>
                 <h4>Params:</h4>
                 <ul class="params">
-                      <li><code>a</code> <span>- (String|Number)</span> </li>
-                      <li><code>b</code> <span>- (String|Number)</span> </li>
+                      <li><span>(String|Number) - </span><code>a</code> </li>
+                      <li><span>(String|Number) - </span><code>b</code> </li>
                 </ul>
 
                 <h4>Usage:</h4>
@@ -325,9 +316,9 @@
               <pre><code class="javascript">function hasProperty(array, prop, val) { ... }</code></pre>
                 <h4>Params:</h4>
                 <ul class="params">
-                      <li><code>array</code> <span>- (Array)</span> </li>
-                      <li><code>prop</code> <span>- (String)</span> </li>
-                      <li><code>val</code> <span>- (String)</span> </li>
+                      <li><span>(Array) - </span><code>array</code> </li>
+                      <li><span>(String) - </span><code>prop</code> </li>
+                      <li><span>(String) - </span><code>val</code> </li>
                 </ul>
 
                 <h4>Usage:</h4>
@@ -335,17 +326,46 @@
 // Horror Movies
 {{/hasProperty}}</code></pre>
             </article>
+            <article id=hasPropertyLength>
+              <h2>hasPropertyLength</h2>
+              <p>Determines if there are any items in an array with a specific property</p>
+              <pre><code class="javascript">function hasPropertyLength(array, prop, val, options) { ... }</code></pre>
+                <h4>Params:</h4>
+                <ul class="params">
+                      <li><span>(Array) - </span><code>array</code> </li>
+                      <li><span>(String) - </span><code>prop</code> </li>
+                      <li><span>(String) - </span><code>val</code> </li>
+                </ul>
+
+                <h4>Usage:</h4>
+                <pre><code class="javascript">{{#hasPropertyLength movies &#x27;genre&#x27; &#x27;horror&#x27;}}
+// Do Something
+{{/hasPropertyLength}}</code></pre>
+            </article>
+            <article id=itemAtIndex>
+              <h2>itemAtIndex</h2>
+              <p>Returns an array item at a specified index</p>
+              <pre><code class="javascript">function itemAtIndex(array, index) { ... }</code></pre>
+                <h4>Params:</h4>
+                <ul class="params">
+                      <li><span>(Array) - </span><code>array</code> </li>
+                      <li><span>(Number) - </span><code>index</code> </li>
+                </ul>
+
+            </article>
             <article id=joinObject>
               <h2>joinObject</h2>
-              <p>Join object</p>
+              <p>Join each array item property</p>
               <pre><code class="javascript">function joinObject(array, prop, separator, options) { ... }</code></pre>
                 <h4>Params:</h4>
                 <ul class="params">
-                      <li><code>array</code> <span>- ([type])</span> </li>
-                      <li><code>prop</code> <span>- ([type])</span> </li>
-                      <li><code>separator</code> <span>- ([type])</span> </li>
+                      <li><span>(Array) - </span><code>array</code> </li>
+                      <li><span>(String) - </span><code>prop</code> </li>
+                      <li><span>(String) - </span><code>separator</code> - the string separator</li>
                 </ul>
 
+                <h4>Usage:</h4>
+                <pre><code class="javascript">{{joinObject posts &#x27;name&#x27; &#x27; - &#x27;}}</code></pre>
             </article>
             <article id=lowercase>
               <h2>lowercase</h2>
@@ -353,11 +373,51 @@
               <pre><code class="javascript">function lowercase(str) { ... }</code></pre>
                 <h4>Params:</h4>
                 <ul class="params">
-                      <li><code>str</code> <span>- (String)</span> </li>
+                      <li><span>(String) - </span><code>str</code> </li>
                 </ul>
 
                 <h4>Usage:</h4>
                 <pre><code class="javascript">{{lowercase &#x27;TEXT&#x27;}} // Outputs &#x27;text&#x27;</code></pre>
+            </article>
+            <article id=math>
+              <h2>math</h2>
+              <p>Math helper</p>
+              <pre><code class="javascript">function math(a, operator, b) { ... }</code></pre>
+                <h4>Params:</h4>
+                <ul class="params">
+                      <li><span>(Number) - </span><code>a</code> - left hand argument</li>
+                      <li><span>(String) - </span><code>operator</code> </li>
+                      <li><span>(Number) - </span><code>b</code> - right hand argument</li>
+                </ul>
+
+                <h4>Usage:</h4>
+                <pre><code class="javascript">{{math 5 &#x27;-&#x27; 4}} // Output: 1</code></pre>
+            </article>
+            <article id=numberItemsWithProperty>
+              <h2>numberItemsWithProperty</h2>
+              <p>Returns the number of items in an array with a specific property</p>
+              <pre><code class="javascript">function numberItemsWithProperty(array, prop, val) { ... }</code></pre>
+                <h4>Params:</h4>
+                <ul class="params">
+                      <li><span>(Array) - </span><code>array</code> </li>
+                      <li><span>(String) - </span><code>prop</code> </li>
+                      <li><span>(String) - </span><code>val</code> </li>
+                </ul>
+
+                <h4>Usage:</h4>
+                <pre><code class="javascript">{{numberItemsWithProperty posts &#x27;name&#x27; &#x27;one&#x27;}}</code></pre>
+            </article>
+            <article id=numberNotDeleted>
+              <h2>numberNotDeleted</h2>
+              <p>Returns the number of objects with { deleted: false }</p>
+              <pre><code class="javascript">function numberNotDeleted(array) { ... }</code></pre>
+                <h4>Params:</h4>
+                <ul class="params">
+                      <li><span>(Array) - </span><code>array</code> </li>
+                </ul>
+
+                <h4>Usage:</h4>
+                <pre><code class="javascript">{{numberNotDeleted keywords}} // Returns number of keywords with {deleted: false}</code></pre>
             </article>
             <article id=numeral>
               <h2>numeral</h2>
@@ -365,8 +425,8 @@
               <pre><code class="javascript">function numeral(num, format) { ... }</code></pre>
                 <h4>Params:</h4>
                 <ul class="params">
-                      <li><code>num</code> <span>- (Number)</span> </li>
-                      <li><code>format</code> <span>- (String)</span> - Numeral format (default &#x3D; &#x27;0,0.00&#x27;)</li>
+                      <li><span>(Number) - </span><code>num</code> </li>
+                      <li><span>(String) - </span><code>format</code> - Numeral format (default &#x3D; &#x27;0,0.00&#x27;)</li>
                 </ul>
 
                 <h4>Usage:</h4>
@@ -378,8 +438,8 @@
               <pre><code class="javascript">function or(a, b, options) { ... }</code></pre>
                 <h4>Params:</h4>
                 <ul class="params">
-                      <li><code>a</code> <span>- (String|Number)</span> </li>
-                      <li><code>b</code> <span>- (String|Number)</span> </li>
+                      <li><span>(String|Number) - </span><code>a</code> </li>
+                      <li><span>(String|Number) - </span><code>b</code> </li>
                 </ul>
 
                 <h4>Usage:</h4>
@@ -393,12 +453,24 @@
               <pre><code class="javascript">function pluralize(array, string) { ... }</code></pre>
                 <h4>Params:</h4>
                 <ul class="params">
-                      <li><code>array</code> <span>- (Array)</span> </li>
-                      <li><code>string</code> <span>- (String)</span> (expects singular version)</li>
+                      <li><span>(Array) - </span><code>array</code> </li>
+                      <li><span>(String) - </span><code>string</code> (expects singular version)</li>
                 </ul>
 
                 <h4>Usage:</h4>
                 <pre><code class="javascript">{{pluralize 5 &#x27;post&#x27;}} // Outputs &#x27;5 posts&#x27;</code></pre>
+            </article>
+            <article id=removeUnderscores>
+              <h2>removeUnderscores</h2>
+              <p>Remove underscores from a string</p>
+              <pre><code class="javascript">function removeUnderscores(string) { ... }</code></pre>
+                <h4>Params:</h4>
+                <ul class="params">
+                      <li><span>(String) - </span><code>string</code> </li>
+                </ul>
+
+                <h4>Usage:</h4>
+                <pre><code class="javascript">{{removeUnderscores &#x27;first_name&#x27;}} // Output: &#x27;first name&#x27;</code></pre>
             </article>
             <article id=round>
               <h2>round</h2>
@@ -406,7 +478,7 @@
               <pre><code class="javascript">function round(val) { ... }</code></pre>
                 <h4>Params:</h4>
                 <ul class="params">
-                      <li><code>val</code> <span>- (Number)</span> </li>
+                      <li><span>(Number) - </span><code>val</code> </li>
                 </ul>
 
                 <h4>Usage:</h4>
@@ -418,7 +490,7 @@
               <pre><code class="javascript">function slugify(str) { ... }</code></pre>
                 <h4>Params:</h4>
                 <ul class="params">
-                      <li><code>str</code> <span>- (String)</span> </li>
+                      <li><span>(String) - </span><code>str</code> </li>
                 </ul>
 
                 <h4>Usage:</h4>
@@ -430,7 +502,7 @@
               <pre><code class="javascript">function stringify(json) { ... }</code></pre>
                 <h4>Params:</h4>
                 <ul class="params">
-                      <li><code>json</code> <span>- (Object)</span> </li>
+                      <li><span>(Object) - </span><code>json</code> </li>
                 </ul>
 
                 <h4>Usage:</h4>
@@ -442,7 +514,7 @@
               <pre><code class="javascript">function today(format) { ... }</code></pre>
                 <h4>Params:</h4>
                 <ul class="params">
-                      <li><code>format</code> <span>- (String)</span> </li>
+                      <li><span>(String) - </span><code>format</code> </li>
                 </ul>
 
                 <h4>Usage:</h4>
@@ -454,10 +526,10 @@
               <pre><code class="javascript">function truncate(paragraph, wordwise, max, tail) { ... }</code></pre>
                 <h4>Params:</h4>
                 <ul class="params">
-                      <li><code>paragraph</code> <span>- (String)</span> </li>
-                      <li><code>wordwise</code> <span>- (Boolean)</span> </li>
-                      <li><code>max</code> <span>- (Number)</span> </li>
-                      <li><code>tail</code> <span>- (String)</span> </li>
+                      <li><span>(String) - </span><code>paragraph</code> </li>
+                      <li><span>(Boolean) - </span><code>wordwise</code> </li>
+                      <li><span>(Number) - </span><code>max</code> </li>
+                      <li><span>(String) - </span><code>tail</code> </li>
                 </ul>
 
                 <h4>Usage:</h4>
@@ -469,7 +541,7 @@
               <pre><code class="javascript">function uppercase(str) { ... }</code></pre>
                 <h4>Params:</h4>
                 <ul class="params">
-                      <li><code>str</code> <span>- (String)</span> </li>
+                      <li><span>(String) - </span><code>str</code> </li>
                 </ul>
 
                 <h4>Usage:</h4>

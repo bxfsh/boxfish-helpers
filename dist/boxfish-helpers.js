@@ -225,6 +225,7 @@ module.exports.dateHasPast = module.exports.dateHasPassed;
  * @param  {String} defaultVal
  * @return {String} Returns string
  * @example {{defaultValue name 'unknown'}}
+ * @alias default
  */
 module.exports.defaultValue = function defaultValue(val, defaultVal) {
   return val ? val : defaultVal;
@@ -283,24 +284,6 @@ module.exports.eq = function eq() {
 };
 
 /**
- * Determine if value exists
- * @method exists
- * @param  {String} val
- * @param  {Object} options
- * @return {Boolean} Returns boolean value
- * @example {{#exists someValue}}
- *   // Do Something
- * {{/exists}}
- */
-module.exports.exists = function exists(val, options) {
-  if (typeof val !== 'undefined') {
-    return options.fn(this);
-  } else {
-    return options.inverse(this);
-  }
-};
-
-/**
  * Returns a sliced array from 0 to a specified position
  * @method first
  * @param  {Array} array
@@ -315,19 +298,8 @@ module.exports.first = function first() {
   return array.slice(0, count);
 };
 
-module.exports.foreach = function foreach(array, options) {
-
-  if (!array.length) {
-    return options.inverse(this);
-  }
-
-  return array.map(function (item, index) {
-    return options.fn(item);
-  }).join('');
-};
-
 /**
- * Format a date string with moment
+ * Format a date string with moment.js
  * @method formatDate
  *
  * @param  {String} date
@@ -335,6 +307,7 @@ module.exports.foreach = function foreach(array, options) {
  * @return {String} Returns the formatted date
  *
  * @example {{formatDate date 'hh:mm'}}
+ * @alias moment
  */
 module.exports.formatDate = function formatDate(date, format, options) {
 
@@ -490,6 +463,18 @@ module.exports.hasProperty = function hasProperty(array, prop, val) {
   return ret;
 };
 
+/**
+ * Determines if there are any items in an array with a specific property
+ * @method hasPropertyLength
+ * @param  {Array} array
+ * @param  {String} prop
+ * @param  {String} val
+ * @param  {Object} options
+ * @return {Boolean}
+ * @example {{#hasPropertyLength movies 'genre' 'horror'}}
+ *   // Do Something
+ * {{/hasPropertyLength}}
+ */
 module.exports.hasPropertyLength = function hasPropertyLength(array, prop, val, options) {
   var count = 0;
 
@@ -510,24 +495,36 @@ module.exports.hasPropertyLength = function hasPropertyLength(array, prop, val, 
   }
 };
 
-module.exports.itemAtIndex = function itemAtIndex(array, index, format) {
-  if (!array) return '';
+/**
+ * Returns an array item at a specified index
+ * @method itemAtIndex
+ * @param  {Array} array
+ * @param  {Number} index
+ * @return {Object|String|Number} Returns array item
+ * {{itemAtIndex posts 5}} // Get 'post' at index 5
+ */
+module.exports.itemAtIndex = function itemAtIndex() {
+  var array = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
+  var index = arguments.length <= 1 || arguments[1] === undefined ? 0 : arguments[1];
+
   return array[index];
 };
 
 /**
- * Join object
+ * Join each array item property
  * @method joinObject
- * @param  {[type]}   array
- * @param  {[type]}   prop
- * @param  {[type]}   separator
- * @param  {[type]}   options
- * @return {[type]}
+ * @param  {Array} array
+ * @param  {String} prop
+ * @param  {String} separator - the string separator
+ * @param  {Object} options
+ * @return {String} returns a string
+ *
+ * @example {{joinObject posts 'name' ' - '}}
  */
 module.exports.joinObject = function joinObject() {
   var array = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
   var prop = arguments[1];
-  var separator = arguments[2];
+  var separator = arguments.length <= 2 || arguments[2] === undefined ? ', ' : arguments[2];
   var options = arguments[3];
 
   var ret = '';
@@ -554,6 +551,15 @@ module.exports.lowercase = function lowercase(str) {
   return str.toLowerCase();
 };
 
+/**
+ * Math helper
+ * @method math
+ * @param  {Number} a - left hand argument
+ * @param  {String} operator
+ * @param  {Number} b - right hand argument
+ * @return {Number} returns calculated number
+ * @example {{math 5 '-' 4}} // Output: 1
+ */
 module.exports.math = function math(a, operator, b) {
   if (isNaN(parseInt(a)) || isNaN(parseInt(b))) {
     console.warn('Math helper \'a\' and \'b\' parameters MUST be integers.', a, b);
@@ -574,7 +580,20 @@ module.exports.math = function math(a, operator, b) {
   }
 };
 
-module.exports.numberItemsWithProperty = function numberItemsWithProperty(array, prop, val) {
+/**
+ * Returns the number of items in an array with a specific property
+ * @method numberItemsWithProperty
+ * @param  {Array} array
+ * @param  {String} prop
+ * @param  {String} val
+ * @return {Number} Returns number
+ * @example {{numberItemsWithProperty posts 'name' 'one'}}
+ */
+module.exports.numberItemsWithProperty = function numberItemsWithProperty() {
+  var array = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
+  var prop = arguments[1];
+  var val = arguments[2];
+
   if (typeof value === 'string') {
     value = value.toLowerCase();
   }
@@ -586,7 +605,16 @@ module.exports.numberItemsWithProperty = function numberItemsWithProperty(array,
   return array.length > 0 ? array.length : '0';
 };
 
-module.exports.numberNotDeleted = function numberNotDeleted(array) {
+/**
+ * Returns the number of objects with { deleted: false }
+ * @method numberNotDeleted
+ * @param  {Array} array
+ * @return {Number}
+ * @example {{numberNotDeleted keywords}} // Returns number of keywords with {deleted: false}
+ */
+module.exports.numberNotDeleted = function numberNotDeleted() {
+  var array = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
+
   return _.filter(array, {
     deleted: false
   }).length;
@@ -655,6 +683,13 @@ module.exports.pluralize = function pluralize(array, string) {
   }
 };
 
+/**
+ * Remove underscores from a string
+ * @method removeUnderscores
+ * @param  {String} string
+ * @return {string} returns the string without underscores
+ * @example {{removeUnderscores 'first_name'}} // Output: 'first name'
+ */
 module.exports.removeUnderscores = function removeUnderscores() {
   var string = arguments.length <= 0 || arguments[0] === undefined ? '' : arguments[0];
 

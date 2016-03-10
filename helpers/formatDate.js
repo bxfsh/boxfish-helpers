@@ -1,5 +1,5 @@
 /**
- * Format a date string with moment
+ * Format a date string with moment.js
  * @method formatDate
  *
  * @param  {String} date
@@ -7,6 +7,7 @@
  * @return {String} Returns the formatted date
  *
  * @example {{formatDate date 'hh:mm'}}
+ * @alias moment
  */
 module.exports.formatDate = function formatDate(date, format, options) {
 

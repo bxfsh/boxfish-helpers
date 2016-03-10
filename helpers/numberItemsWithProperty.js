@@ -1,4 +1,13 @@
-module.exports.numberItemsWithProperty = function numberItemsWithProperty(array, prop, val) {
+/**
+ * Returns the number of items in an array with a specific property
+ * @method numberItemsWithProperty
+ * @param  {Array} array
+ * @param  {String} prop
+ * @param  {String} val
+ * @return {Number} Returns number
+ * @example {{numberItemsWithProperty posts 'name' 'one'}}
+ */
+module.exports.numberItemsWithProperty = function numberItemsWithProperty(array = [], prop, val) {
   if (typeof value === 'string') {
     value = value.toLowerCase();
   }

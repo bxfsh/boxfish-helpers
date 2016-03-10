@@ -1,13 +1,15 @@
 /**
- * Join object
+ * Join each array item property
  * @method joinObject
- * @param  {[type]}   array
- * @param  {[type]}   prop
- * @param  {[type]}   separator
- * @param  {[type]}   options
- * @return {[type]}
+ * @param  {Array} array
+ * @param  {String} prop
+ * @param  {String} separator - the string separator
+ * @param  {Object} options
+ * @return {String} returns a string
+ *
+ * @example {{joinObject posts 'name' ' - '}}
  */
-module.exports.joinObject = function joinObject(array = [], prop, separator, options) {
+module.exports.joinObject = function joinObject(array = [], prop, separator = ', ', options) {
   var ret = '';
 
   for (var i = 0; i < array.length; i++) {

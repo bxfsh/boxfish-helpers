@@ -1,3 +1,15 @@
+/**
+ * Determines if there are any items in an array with a specific property
+ * @method hasPropertyLength
+ * @param  {Array} array
+ * @param  {String} prop
+ * @param  {String} val
+ * @param  {Object} options
+ * @return {Boolean}
+ * @example {{#hasPropertyLength movies 'genre' 'horror'}}
+ *   // Do Something
+ * {{/hasPropertyLength}}
+ */
 module.exports.hasPropertyLength = function hasPropertyLength(array, prop, val, options) {
   var count = 0;
 
