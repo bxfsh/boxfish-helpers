@@ -5,10 +5,6 @@ module.exports = _dereq_('./helpers.js');
 },{"./helpers.js":2}],2:[function(_dereq_,module,exports){
 'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.toLowerCase = toLowerCase;
 /**
  * Returns all of the items in the collection after the specified count.
  *
@@ -86,7 +82,7 @@ module.exports.before = function before() {
   var array = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
   var count = arguments[1];
 
-  return array.slice(0, -count);
+  return array.slice(0, count);
 };
 
 /**
@@ -110,14 +106,25 @@ module.exports.capitalize = function capitalize() {
  * Returns an array list separated by commas
  * @method commaSeparate
  * @param  {Array} array
+ * @param  {String} separator - default: ', '
  * @return {String} Returns the formatted string
  * @example {{commaSeparate genres}}
  */
 module.exports.commaSeparate = function commaSeparate() {
   var array = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
+  var separator = arguments[1];
+  var options = arguments[2];
 
-  return array.join(', ');
+
+  if (arguments.length > 2) {
+    return array.join(separator);
+  } else {
+    var separator = ', ';
+    return array.join(separator);
+  }
 };
+
+module.exports.join = module.exports.commaSeparate;
 
 /**
  * Compare two values
@@ -204,13 +211,8 @@ module.exports.compare = function compare(left) {
  */
 module.exports.dateHasPassed = function dateHasPassed(date, options) {
 
-  if (typeof moment === 'undefined') {
-    console.warn('Moment.js is required for \'dateHasPassed\' helper');
-    return;
-  }
-
   var today = new Date().toISOString();
-  var date = moment(date).toISOString();
+  var date = new Date(date).toISOString();
 
   if (today > date) {
     return options.fn(this);
@@ -313,12 +315,8 @@ module.exports.first = function first() {
  * @example {{formatDate date 'hh:mm'}}
  * @alias moment
  */
-module.exports.formatDate = function formatDate(date, format, options) {
 
-  if (typeof moment === 'undefined') {
-    console.warn('Moment.js is required for the \'formateDate\' helper');
-    return;
-  }
+module.exports.formatDate = function formatDate(date, format, options) {
 
   if (arguments.length === 2) {
     // format argument missing
@@ -548,12 +546,15 @@ module.exports.joinObject = function joinObject() {
  * @method lowercase
  * @param  {String} str
  * @return {String} Returns string in lowercase
+ * @alias toLowerCase
  * @example {{lowercase 'TEXT'}} // Outputs 'text'
  */
 module.exports.lowercase = function lowercase(str) {
   if (!str || typeof str !== 'stirng') return '';
   return str.toLowerCase();
 };
+
+module.exports.toLowerCase = module.exports.lowercase;
 
 /**
  * Math helper
@@ -763,21 +764,6 @@ module.exports.tmdb = function tmdb(url, size, options) {
     } else return url;
   }
 };
-
-/**
- * Returns a string in lower case
- *
- * @method toLowerCase
- * @param  {string} str - string to lower cas
- * @return {string} string lower case string
- *
- * @example {{toLowerCase 'Some String'}}
- */
-function toLowerCase() {
-  var str = arguments.length <= 0 || arguments[0] === undefined ? '' : arguments[0];
-
-  return str.toLowerCase();
-}
 
 /**
  * Returns todays date

@@ -53,7 +53,6 @@
             <li><a href="#round">round</a></li>
             <li><a href="#slugify">slugify</a></li>
             <li><a href="#stringify">stringify</a></li>
-            <li><a href="#toLowerCase">toLowerCase</a></li>
             <li><a href="#today">today</a></li>
             <li><a href="#truncate">truncate</a></li>
             <li><a href="#uppercase">uppercase</a></li>
@@ -133,10 +132,11 @@
             <article id=commaSeparate>
               <h2>commaSeparate</h2>
               <p>Returns an array list separated by commas</p>
-              <pre><code class="javascript">function commaSeparate(array) { ... }</code></pre>
+              <pre><code class="javascript">function commaSeparate(array, separator) { ... }</code></pre>
                 <h4>Params:</h4>
                 <ul class="params">
                       <li><span>(Array) - </span><code>array</code> </li>
+                      <li><span>(String) - </span><code>separator</code> - default: &#x27;, &#x27;</li>
                 </ul>
 
                 <h4>Usage:</h4>
@@ -508,18 +508,6 @@
 
                 <h4>Usage:</h4>
                 <pre><code class="javascript">{{{stringify json}}} // Note the triple braces</code></pre>
-            </article>
-            <article id=toLowerCase>
-              <h2>toLowerCase</h2>
-              <p>Returns a string in lower case</p>
-              <pre><code class="javascript">function toLowerCase(str) { ... }</code></pre>
-                <h4>Params:</h4>
-                <ul class="params">
-                      <li><span>(string) - </span><code>str</code> - string to lower cas</li>
-                </ul>
-
-                <h4>Usage:</h4>
-                <pre><code class="javascript">{{toLowerCase &#x27;Some String&#x27;}}</code></pre>
             </article>
             <article id=today>
               <h2>today</h2>
