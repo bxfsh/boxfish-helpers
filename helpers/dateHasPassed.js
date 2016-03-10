@@ -10,13 +10,8 @@
  */
 module.exports.dateHasPassed = function dateHasPassed(date, options) {
 
-  if (typeof moment === 'undefined') {
-    console.warn('Moment.js is required for \'dateHasPassed\' helper');
-    return;
-  }
-
   var today = new Date().toISOString();
-  var date = moment(date).toISOString();
+  var date = new Date(date).toISOString();
 
   if (today > date) {
     return options.fn(this);

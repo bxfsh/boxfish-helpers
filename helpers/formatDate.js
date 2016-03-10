@@ -9,12 +9,8 @@
  * @example {{formatDate date 'hh:mm'}}
  * @alias moment
  */
-module.exports.formatDate = function formatDate(date, format, options) {
 
-  if (typeof moment === 'undefined') {
-    console.warn('Moment.js is required for the \'formateDate\' helper');
-    return;
-  }
+module.exports.formatDate = function formatDate(date, format, options) {
 
   if (arguments.length === 2) {
     // format argument missing

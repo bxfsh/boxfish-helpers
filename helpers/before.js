@@ -8,5 +8,5 @@
  * @example {{before posts 10}}
  */
 module.exports.before = function before(array = [], count) {
-  return array.slice(0, -count);
+  return array.slice(0, count);
 };
