@@ -6,8 +6,8 @@
  * @alias toLowerCase
  * @example {{lowercase 'TEXT'}} // Outputs 'text'
  */
-module.exports.lowercase = function lowercase(str) {
-  if (!str || typeof str !== 'stirng') return '';
+module.exports.lowercase = function lowercase(str = '') {
+  if (!str || typeof str !== 'string') return '';
   return str.toLowerCase();
 };
 

@@ -544,8 +544,10 @@ module.exports.joinObject = function joinObject() {
  * @alias toLowerCase
  * @example {{lowercase 'TEXT'}} // Outputs 'text'
  */
-module.exports.lowercase = function lowercase(str) {
-  if (!str || typeof str !== 'stirng') return '';
+module.exports.lowercase = function lowercase() {
+  var str = arguments.length <= 0 || arguments[0] === undefined ? '' : arguments[0];
+
+  if (!str || typeof str !== 'string') return '';
   return str.toLowerCase();
 };
 
