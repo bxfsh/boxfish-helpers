@@ -1,6 +1,4 @@
-const glob = require('glob');
-const path = require('path');
-const Handlebars = require('Handlebars');
+const Handlebars = require('handlebars');
 const helpers = require('../dist/boxfish-helpers.js');
 const moment = require('moment');
 
@@ -24,6 +22,8 @@ context = {
   falseValue: false,
   test: 'test',
   yesterday: new Date(new Date().setDate(new Date().getDate() - 1)),
+  moment: require('moment'),
+  numeral: require('numeral'),
 };
 
 // After
@@ -176,6 +176,182 @@ describe('first'.green, function () {
     source = '{{first collection "2"}}';
     template = Handlebars.compile(source);
     template(context).should.equal('one,two');
+    done();
+  });
+});
+
+describe.skip('formatDate'.green, function () {
+  it('should return the year', function (done) {
+    source = '{{formatDate yesterday "YYYY"}}';
+    template = Handlebars.compile(source);
+    template(context).should.equal('2016');
+    done();
+  });
+
+  it('should work with \'moment\'', function (done) {
+    source = '{{moment yesterday "YYYY"}}';
+    template = Handlebars.compile(source);
+    template(context).should.equal('2016');
+    done();
+  });
+});
+
+describe('formatTweet'.green, function () {
+  it('should find handles', function (done) {
+    source = '{{{formatTweet "@mrkmur"}}}';
+    template = Handlebars.compile(source);
+    template(context).should.equal("<a href='https://twitter.com/mrkmur'>@mrkmur</a>");
+    done();
+  });
+
+  it('should find hashtags', function (done) {
+    source = '{{{formatTweet "#hashtag"}}}';
+    template = Handlebars.compile(source);
+    template(context).should.equal("<a href='https://twitter.com/hashtag/hashtag'>#hashtag</a>");
+    done();
+  });
+});
+
+describe.skip('formateTwitterSearch'.green, function () {
+});
+
+describe.skip('fromNow'.green, function () {
+  it('should return the time from now', function (done) {
+    source = '{{fromNow yesterday}}';
+    template = Handlebars.compile(source);
+    template(context).should.equal('a day ago');
+    done();
+  });
+});
+
+describe.skip('gt'.green, function () {
+  it('should test the greater than helper', function (done) {
+    done();
+  });
+});
+
+describe.skip('gte'.green, function () {
+  it('should test the greater than or equal to helper', function (done) {
+    done();
+  });
+});
+
+describe.skip('gtlt'.green, function () {
+  it('todo', function (done) {
+    done();
+  });
+});
+
+describe.skip('hasProperty'.green, function () {
+  it('todo', function (done) {
+    done();
+  });
+});
+
+describe.skip('hasPropertyLength'.green, function () {
+  it('todo', function (done) {
+    done();
+  });
+});
+
+describe.skip('itemAtIndex'.green, function () {
+  it('todo', function (done) {
+    done();
+  });
+});
+
+describe.skip('joinObject'.green, function () {
+  it('todo', function (done) {
+    done();
+  });
+});
+
+describe.skip('lowercase'.green, function () {
+  it('todo', function (done) {
+    done();
+  });
+});
+
+describe.skip('math'.green, function () {
+  it('todo', function (done) {
+    done();
+  });
+});
+
+describe.skip('numberItemsWithProperty'.green, function () {
+  it('todo', function (done) {
+    done();
+  });
+});
+
+describe.skip('numberNotDeleted'.green, function () {
+  it('todo', function (done) {
+    done();
+  });
+});
+
+describe.skip('numeral'.green, function () {
+  it('todo', function (done) {
+    done();
+  });
+});
+
+describe.skip('or'.green, function () {
+  it('todo', function (done) {
+    done();
+  });
+});
+
+describe.skip('pluralize'.green, function () {
+  it('todo', function (done) {
+    done();
+  });
+});
+
+describe.skip('removeUnderscores'.green, function () {
+  it('todo', function (done) {
+    done();
+  });
+});
+
+describe.skip('round'.green, function () {
+  it('todo', function (done) {
+    done();
+  });
+});
+
+describe.skip('slugify'.green, function () {
+  it('todo', function (done) {
+    done();
+  });
+});
+
+describe.skip('stringify'.green, function () {
+  it('todo', function (done) {
+    done();
+  });
+});
+
+describe.skip('tmdb'.green, function () {
+  it('todo', function (done) {
+    done();
+  });
+});
+
+describe.skip('today'.green, function () {
+  it('todo', function (done) {
+    done();
+  });
+});
+
+describe.skip('truncate'.green, function () {
+  it('todo', function (done) {
+    done();
+  });
+});
+
+describe.skip('uppercase'.green, function () {
+  it('todo', function (done) {
     done();
   });
 });
