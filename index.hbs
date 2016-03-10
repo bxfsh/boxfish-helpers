@@ -37,7 +37,7 @@
                 <ul class="params">
                   {{#each params}}
                     {{^eq  name 'options'}}
-                      <li><code>{{name}}</code> <span>- ({{type}})</span> {{description}}</li>
+                      <li><span>({{type}}) - </span><code>{{name}}</code> {{description}}</li>
                     {{/eq}}
                   {{/each}}
                 </ul>
