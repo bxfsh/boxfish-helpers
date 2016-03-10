@@ -5,6 +5,10 @@ module.exports = _dereq_('./helpers.js');
 },{"./helpers.js":2}],2:[function(_dereq_,module,exports){
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.toLowerCase = toLowerCase;
 /**
  * Returns all of the items in the collection after the specified count.
  *
@@ -759,6 +763,21 @@ module.exports.tmdb = function tmdb(url, size, options) {
     } else return url;
   }
 };
+
+/**
+ * Returns a string in lower case
+ *
+ * @method toLowerCase
+ * @param  {string} str - string to lower cas
+ * @return {string} string lower case string
+ *
+ * @example {{toLowerCase 'Some String'}}
+ */
+function toLowerCase() {
+  var str = arguments.length <= 0 || arguments[0] === undefined ? '' : arguments[0];
+
+  return str.toLowerCase();
+}
 
 /**
  * Returns todays date
