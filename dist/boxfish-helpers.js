@@ -5,7 +5,6 @@ module.exports = _dereq_('./helpers.js');
 },{"./helpers.js":2}],2:[function(_dereq_,module,exports){
 'use strict';
 
-<<<<<<< HEAD:dist/bundle.js
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
@@ -49,11 +48,10 @@ exports.round = round;
 exports.slugify = slugify;
 exports.stringify = stringify;
 exports.tmdb = tmdb;
+exports.toLowerCase = toLowerCase;
 exports.today = today;
 exports.truncate = truncate;
 exports.uppercase = uppercase;
-=======
->>>>>>> 1aeb5317ded12fe7ff7dc8eff10f9cd85bb98358:dist/boxfish-helpers.js
 /**
  * Returns all of the items in the collection after the specified count.
  *
@@ -64,12 +62,12 @@ exports.uppercase = uppercase;
  *
  * @example {{after posts 5}}
  */
-module.exports.after = function after() {
+function after() {
   var array = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
   var count = arguments[1];
 
   return array.slice(count);
-};
+}
 
 /**
  * And operator helper
@@ -83,13 +81,13 @@ module.exports.after = function after() {
  *   // Do Something
  * {{/and}}
  */
-module.exports.and = function and(a, b, options) {
+function and(a, b, options) {
   if (a && b) {
     return options.fn(this);
   } else {
     return options.inverse(this);
   }
-};
+}
 
 /**
  * Determines if an array contains an element with specified value
@@ -104,7 +102,7 @@ module.exports.and = function and(a, b, options) {
  *   // Do Something
  * {{/arrayContains}}
  */
-module.exports.arrayContains = function arrayContains() {
+function arrayContains() {
   var array = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
   var value = arguments.length <= 1 || arguments[1] === undefined ? '' : arguments[1];
   var options = arguments[2];
@@ -127,12 +125,12 @@ module.exports.arrayContains = function arrayContains() {
  *
  * @example {{before posts 10}}
  */
-module.exports.before = function before() {
+function before() {
   var array = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
   var count = arguments[1];
 
   return array.slice(0, -count);
-};
+}
 
 /**
  * Capitalize a string
@@ -141,7 +139,7 @@ module.exports.before = function before() {
  * @return {String} Returns the capitalized string
  * @example {{capitalize firstName}}
  */
-module.exports.capitalize = function capitalize() {
+function capitalize() {
   var string = arguments.length <= 0 || arguments[0] === undefined ? '' : arguments[0];
 
   string = string.toLowerCase();
@@ -149,7 +147,7 @@ module.exports.capitalize = function capitalize() {
   return string.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, function (match, index) {
     return match.toUpperCase();
   });
-};
+}
 
 /**
  * Returns an array list separated by commas
@@ -158,7 +156,7 @@ module.exports.capitalize = function capitalize() {
  * @return {String} Returns the formatted string
  * @example {{commaSeparate genres}}
  */
-module.exports.commaSeparate = function commaSeparate() {
+function commaSeparate() {
   var array = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
 
   return array.join(', ');
@@ -175,7 +173,7 @@ module.exports.commaSeparate = function commaSeparate() {
  *   // Do Something
  * {{/compare}}
  */
-module.exports.compare = function compare(left) {
+function compare(left) {
   var operator = arguments.length <= 1 || arguments[1] === undefined ? '===' : arguments[1];
   var right = arguments[2];
   var options = arguments[3];
@@ -221,6 +219,10 @@ module.exports.compare = function compare(left) {
 
     '>=': function _(l, r) {
       return l >= r;
+    },
+
+    typeof: function _typeof(l, r) {
+      return (typeof l === 'undefined' ? 'undefined' : _typeof2(l)) == r;
     }
   };
 
@@ -235,7 +237,7 @@ module.exports.compare = function compare(left) {
   } else {
     return options.inverse(this);
   }
-};
+}
 
 /**
  * Determines if a date is in the past
@@ -247,11 +249,7 @@ module.exports.compare = function compare(left) {
  *   // Do Something
  * {{/dateHasPassed}}
  */
-<<<<<<< HEAD:dist/bundle.js
 function dateHasPassed(date, options) {
-=======
-module.exports.dateHasPassed = function dateHasPassed(date, options) {
->>>>>>> 1aeb5317ded12fe7ff7dc8eff10f9cd85bb98358:dist/boxfish-helpers.js
 
   if (typeof moment === 'undefined') {
     console.warn('Moment.js is required for \'dateHasPassed\' helper');
@@ -266,10 +264,7 @@ module.exports.dateHasPassed = function dateHasPassed(date, options) {
   } else {
     return options.inverse(this);
   }
-};
-
-// Alias 'dateHasPast'
-module.exports.dateHasPast = module.exports.dateHasPassed;
+}
 
 /**
  * Returns default value if value is missing
@@ -279,11 +274,9 @@ module.exports.dateHasPast = module.exports.dateHasPassed;
  * @return {String} Returns string
  * @example {{defaultValue name 'unknown'}}
  */
-module.exports.defaultValue = function defaultValue(val, defaultVal) {
+function defaultValue(val, defaultVal) {
   return val ? val : defaultVal;
-};
-
-module.exports.default = module.exports.defaultValue;
+}
 
 /**
  * Returns an array of items with specified property
@@ -291,7 +284,7 @@ module.exports.default = module.exports.defaultValue;
  * @param  {Object} context
  * @param  {Object} options
  */
-module.exports.eachProperty = function eachProperty(context, options) {
+function eachProperty(context, options) {
   var content = function () {
     var results = [];
     for (var key in context) {
@@ -306,7 +299,7 @@ module.exports.eachProperty = function eachProperty(context, options) {
   }();
 
   return content.join('');
-};
+}
 
 /**
  * Determines if one value equals another
@@ -319,7 +312,7 @@ module.exports.eachProperty = function eachProperty(context, options) {
  *    // Do Something
  * {{/eq}}
  */
-module.exports.eq = function eq() {
+function eq() {
   var val = arguments.length <= 0 || arguments[0] === undefined ? '' : arguments[0];
   var match = arguments.length <= 1 || arguments[1] === undefined ? '' : arguments[1];
   var options = arguments[2];
@@ -333,7 +326,7 @@ module.exports.eq = function eq() {
   } else {
     return options.inverse(this);
   }
-};
+}
 
 /**
  * Determine if value exists
@@ -345,13 +338,13 @@ module.exports.eq = function eq() {
  *   // Do Something
  * {{/exists}}
  */
-module.exports.exists = function exists(val, options) {
+function exists(val, options) {
   if (typeof val !== 'undefined') {
     return options.fn(this);
   } else {
     return options.inverse(this);
   }
-};
+}
 
 /**
  * Returns a sliced array from 0 to a specified position
@@ -361,14 +354,14 @@ module.exports.exists = function exists(val, options) {
  * @return {Array} Returns sliced array
  * @example {{first posts 10}}
  */
-module.exports.first = function first() {
+function first() {
   var array = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
   var count = arguments[1];
 
   return array.slice(0, count);
 };
 
-module.exports.foreach = function foreach(array, options) {
+function foreach(array, options) {
 
   if (!array.length) {
     return options.inverse(this);
@@ -377,7 +370,7 @@ module.exports.foreach = function foreach(array, options) {
   return array.map(function (item, index) {
     return options.fn(item);
   }).join('');
-};
+}
 
 /**
  * Format a date string with moment
@@ -389,26 +382,22 @@ module.exports.foreach = function foreach(array, options) {
  *
  * @example {{formatDate date 'hh:mm'}}
  */
-module.exports.formatDate = function formatDate(date, format, options) {
+function formatDate(date, format) {
 
   if (typeof moment === 'undefined') {
     console.warn('Moment.js is required for the \'formateDate\' helper');
     return;
   }
 
-  if (arguments.length === 2) {
-    // format argument missing
-    var format = 'MMM Do, hh:mm a';
-  }
+  var defaultFormat = 'MMM Do, hh:mm a';
 
   if (!date) date = new Date();
+  format = format || defaultFormat;
 
   date = new Date(date);
 
   return moment(date).format(format);
-};
-
-module.exports.moment = module.exports.formatDate;
+}
 
 /**
  * Format a tweet to include links for urls, hashtags and users
@@ -417,7 +406,7 @@ module.exports.moment = module.exports.formatDate;
  * @return {String} Returns the formatted tweet
  * @example {{{formatTweet tweetText}}} // Note: triple braces
  */
-module.exports.formatTweet = function formatTweet(tweet) {
+function formatTweet(tweet) {
   try {
     tweet = tweet.replace(/([http|https]+\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}\S*)/ig, "<a href='$1'>$1</a>");
     tweet = tweet.replace(/@(\w{1,15})\b/ig, "<a href='https://twitter.com/$1'>@$1</a>");
@@ -426,7 +415,7 @@ module.exports.formatTweet = function formatTweet(tweet) {
   } catch (err) {
     console.warn(err);
   }
-};
+}
 
 /**
  * Finds hashtags and handles in a string and adds triggers for twitter search
@@ -435,7 +424,7 @@ module.exports.formatTweet = function formatTweet(tweet) {
  * @return {String} Returns formatted tweet
  * @example {{{formatTwitterSearch tweet}}} // Note the triple braces
  */
-module.exports.formatTwitterSearch = function formatTwitterSearch(tweet) {
+function formatTwitterSearch(tweet) {
   try {
 
     // Find URLs and return as usual
@@ -449,7 +438,7 @@ module.exports.formatTwitterSearch = function formatTwitterSearch(tweet) {
   } catch (err) {
     console.warn(err);
   }
-};
+}
 
 /**
  * Returns the time difference between now and a specified date
@@ -458,7 +447,7 @@ module.exports.formatTwitterSearch = function formatTwitterSearch(tweet) {
  * @return {Date} Returns time difference
  * @example {{fromNow date}}
  */
-module.exports.fromNow = function fromNow(date) {
+function fromNow(date) {
   if (typeof moment === 'undefined') {
     console.warn('Moment.js is required for the \'fromNow\' helper');
     return;
@@ -467,7 +456,7 @@ module.exports.fromNow = function fromNow(date) {
   date = date || new Date();
 
   return moment(date).fromNow();
-};
+}
 
 /**
  * Greater than operator
@@ -478,13 +467,13 @@ module.exports.fromNow = function fromNow(date) {
  * @return {[type]}
  * @example {{gt 4 5}}
  */
-module.exports.gt = function gt(a, b, options) {
+function gt(a, b, options) {
   if (a > b) {
     return options.fn(this);
   } else {
     return options.inverse(this);
   }
-};
+}
 
 /**
  * Greater than or equal to operator
@@ -495,13 +484,13 @@ module.exports.gt = function gt(a, b, options) {
  * @return {[type]}
  * @example {{gt 4 5}}
  */
-module.exports.gte = function gte(a, b, options) {
+function gte(a, b, options) {
   if (a >= b) {
     return options.fn(this);
   } else {
     return options.inverse(this);
   }
-};
+}
 
 /**
  * Greater than or less than operator
@@ -512,13 +501,13 @@ module.exports.gte = function gte(a, b, options) {
  * @return {[type]}
  * @example {{gt 4 5}}
  */
-module.exports.gtlt = function gtlt(a, b, options) {
+function gtlt(a, b, options) {
   if (a > b || a < b) {
     return options.fn(this);
   } else {
     return options.inverse(this);
   }
-};
+}
 
 /**
  * Returns array of items with specific property
@@ -531,7 +520,7 @@ module.exports.gtlt = function gtlt(a, b, options) {
  *   // Horror Movies
  * {{/hasProperty}}
  */
-module.exports.hasProperty = function hasProperty(array, prop, val) {
+function hasProperty(array, prop, val) {
   var ret = '';
 
   for (var i = 0; i < array.length; i++) {
@@ -541,9 +530,9 @@ module.exports.hasProperty = function hasProperty(array, prop, val) {
   }
 
   return ret;
-};
+}
 
-module.exports.hasPropertyLength = function hasPropertyLength(array, prop, val, options) {
+function hasPropertyLength(array, prop, val, options) {
   var count = 0;
 
   if (!array.length) {
@@ -561,23 +550,23 @@ module.exports.hasPropertyLength = function hasPropertyLength(array, prop, val, 
   } else {
     return options.inverse(this);
   }
-};
+}
 
-module.exports.itemAtIndex = function itemAtIndex(array, index, format) {
+function itemAtIndex(array, index, format) {
   if (!array) return '';
   return array[index];
-};
+}
 
 /**
- * Join object
+ * [joinObject description]
  * @method joinObject
- * @param  {[type]}   array
- * @param  {[type]}   prop
- * @param  {[type]}   separator
- * @param  {[type]}   options
- * @return {[type]}
+ * @param  {[type]}   array     =             [] [description]
+ * @param  {[type]}   prop      [description]
+ * @param  {[type]}   separator [description]
+ * @param  {[type]}   options   [description]
+ * @return {[type]}             [description]
  */
-module.exports.joinObject = function joinObject() {
+function joinObject() {
   var array = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
   var prop = arguments[1];
   var separator = arguments[2];
@@ -593,7 +582,7 @@ module.exports.joinObject = function joinObject() {
   }
 
   return ret;
-};
+}
 
 /**
  * Return string in lowercase
@@ -602,12 +591,12 @@ module.exports.joinObject = function joinObject() {
  * @return {String} Returns string in lowercase
  * @example {{lowercase 'TEXT'}} // Outputs 'text'
  */
-module.exports.lowercase = function lowercase(str) {
+function lowercase(str) {
   if (!str || typeof str !== 'stirng') return '';
   return str.toLowerCase();
-};
+}
 
-module.exports.math = function math(a, operator, b) {
+function math(a, operator, b) {
   if (isNaN(parseInt(a)) || isNaN(parseInt(b))) {
     console.warn('Math helper \'a\' and \'b\' parameters MUST be integers.', a, b);
     return;
@@ -625,9 +614,9 @@ module.exports.math = function math(a, operator, b) {
     default:
       return;
   }
-};
+}
 
-module.exports.numberItemsWithProperty = function numberItemsWithProperty(array, prop, val) {
+function numberItemsWithProperty(array, prop, val) {
   if (typeof value === 'string') {
     value = value.toLowerCase();
   }
@@ -637,33 +626,23 @@ module.exports.numberItemsWithProperty = function numberItemsWithProperty(array,
   });
 
   return array.length > 0 ? array.length : '0';
+}
+
+function numberNotDeleted(array) {
+  return _.filter(array, { deleted: false }).length;
 };
 
-module.exports.numberNotDeleted = function numberNotDeleted(array) {
-  return _.filter(array, {
-    deleted: false
-  }).length;
-};
+function numeral(number, format) {
+  if (typeof format !== 'string') {
+    format = '0,0.00';
 
-/**
- * Numeral.js helper
- * @method numeral
- * @param  {Number} num
- * @param  {String} format - Numeral format (default = '0,0.00')
- * @return {String} Returns number is specified format
- * @example {{numeral 165000 '0a'}} // Output: 165k
- */
-module.exports.numeral = function () {
-  var num = arguments.length <= 0 || arguments[0] === undefined ? 0 : arguments[0];
-  var format = arguments.length <= 1 || arguments[1] === undefined ? '0,0.00' : arguments[1];
-
-
-  if (num > 10000) {
-    format = '0.0a';
+    if (number > 10000) {
+      format = '0.0a';
+    }
   }
 
-  return numeral(num).format(format);
-};
+  return numeral(number).format(format);
+}
 
 /**
  * OR operator
@@ -676,13 +655,13 @@ module.exports.numeral = function () {
  *   // Do Something
  * {{/or}}
  */
-module.exports.or = function or(a, b, options) {
+function or(a, b, options) {
   if (a || b) {
     return options.fn(this);
   } else {
     return options.inverse(this);
   }
-};
+}
 
 /**
  * Returns a pluralized version of a string
@@ -692,7 +671,7 @@ module.exports.or = function or(a, b, options) {
  * @return {String} Returns pluralized word
  * @example {{pluralize 5 'post'}} // Outputs '5 posts'
  */
-module.exports.pluralize = function pluralize(array, string) {
+function pluralize(array, string) {
   var length = 1;
 
   try {
@@ -706,13 +685,13 @@ module.exports.pluralize = function pluralize(array, string) {
   } catch (err) {
     console.warn(err);
   }
-};
+}
 
-module.exports.removeUnderscores = function removeUnderscores() {
+function removeUnderscores() {
   var string = arguments.length <= 0 || arguments[0] === undefined ? '' : arguments[0];
 
   return string.replace(/\_/ig, ' ');
-};
+}
 
 /**
  * Math Round helper
@@ -721,9 +700,9 @@ module.exports.removeUnderscores = function removeUnderscores() {
  * @return {Number} Returns rounded value
  * @example {{round 1.3}} // Outputs 1
  */
-module.exports.round = function round(val) {
+function round(val) {
   return Math.round(val);
-};
+}
 
 /**
  * Returns a slugified version of a string
@@ -732,14 +711,14 @@ module.exports.round = function round(val) {
  * @return {String}
  * @example {{slugify 'The Walking Dead'}} // Outputs 'the-walking-dead'
  */
-module.exports.slugify = function slugify(str) {
+function slugify(str) {
   if (typeof str !== 'string') {
     console.warn('[Helpers] \'slugify\' parameter should be a string');
     return;
   }
 
   return str.toLowerCase().replace(/\s+/ig, '-').replace(',', '');
-};
+}
 
 /**
  * Stringify JSON
@@ -748,13 +727,13 @@ module.exports.slugify = function slugify(str) {
  * @return {String} returns stringified JSON
  * @example {{{stringify json}}} // Note the triple braces
  */
-module.exports.stringify = function stringify() {
+function stringify() {
   var json = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 
   return JSON.stringify(json, null, 2);
-};
+}
 
-module.exports.tmdb = function tmdb(url, size, options) {
+function tmdb(url, size, options) {
   if (arguments.length <= 2) size = null;
 
   if (!url) return '/images/missing.png';
@@ -776,7 +755,22 @@ module.exports.tmdb = function tmdb(url, size, options) {
       return url;
     } else return url;
   }
-};
+}
+
+/**
+ * Returns a string in lower case
+ *
+ * @method toLowerCase
+ * @param  {string} str - string to lower cas
+ * @return {string} string lower case string
+ *
+ * @example {{toLowerCase 'Some String'}}
+ */
+function toLowerCase() {
+  var str = arguments.length <= 0 || arguments[0] === undefined ? '' : arguments[0];
+
+  return str.toLowerCase();
+}
 
 /**
  * Returns todays date
@@ -785,11 +779,11 @@ module.exports.tmdb = function tmdb(url, size, options) {
  * @return {Date} Returns todays date
  * @example {{today 'Do MMM, YYYY'}}
  */
-module.exports.today = function today() {
+function today() {
   var format = arguments.length <= 0 || arguments[0] === undefined ? 'lll' : arguments[0];
 
   return moment().format(format);
-};
+}
 
 /**
  * Truncate a string to specific length
@@ -801,7 +795,7 @@ module.exports.today = function today() {
  * @return {String} Returns the truncated string
  * @example {{truncate paragraph true 100 '...'}}
  */
-module.exports.truncate = function truncate() {
+function truncate() {
   var paragraph = arguments.length <= 0 || arguments[0] === undefined ? '' : arguments[0];
   var wordwise = arguments[1];
   var max = arguments[2];
@@ -821,7 +815,7 @@ module.exports.truncate = function truncate() {
   }
 
   return paragraph + tail;
-};
+}
 
 /**
  * Returns string in uppercase
@@ -830,12 +824,13 @@ module.exports.truncate = function truncate() {
  * @return {String} Returns uppercase string
  * @example {{uppercase 'boxfish'}} // Outputs 'BOXFISH'
  */
-module.exports.uppercase = function uppercase(str) {
+function uppercase(str) {
   if (typeof str === 'string') {
     console.warn('[Helper] Uppercase helper parameter should be a string');
     return str.toUpperCase();
   }
-};
+}
+
 },{}]},{},[1])
 (1)
 });

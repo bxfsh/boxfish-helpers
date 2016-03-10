@@ -1,55 +1,9 @@
 'use strict';
 
-<<<<<<< HEAD
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
-var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
-
-exports.after = after;
-exports.and = and;
-exports.arrayContains = arrayContains;
-exports.before = before;
-exports.capitalize = capitalize;
-exports.commaSeparate = commaSeparate;
-exports.compare = compare;
-exports.dateHasPassed = dateHasPassed;
-exports.defaultValue = defaultValue;
-exports.eachProperty = eachProperty;
-exports.eq = eq;
-exports.exists = exists;
-exports.first = first;
-exports.foreach = foreach;
-exports.formatDate = formatDate;
-exports.formatTweet = formatTweet;
-exports.formatTwitterSearch = formatTwitterSearch;
-exports.fromNow = fromNow;
-exports.gt = gt;
-exports.gte = gte;
-exports.gtlt = gtlt;
-exports.hasProperty = hasProperty;
-exports.hasPropertyLength = hasPropertyLength;
-exports.itemAtIndex = itemAtIndex;
-exports.joinObject = joinObject;
-exports.lowercase = lowercase;
-exports.math = math;
-exports.numberItemsWithProperty = numberItemsWithProperty;
-exports.numberNotDeleted = numberNotDeleted;
-exports.numeral = numeral;
-exports.or = or;
-exports.pluralize = pluralize;
-exports.removeUnderscores = removeUnderscores;
-exports.round = round;
-exports.slugify = slugify;
-exports.stringify = stringify;
-exports.tmdb = tmdb;
 exports.toLowerCase = toLowerCase;
-exports.today = today;
-exports.truncate = truncate;
-exports.uppercase = uppercase;
-=======
->>>>>>> 1aeb5317ded12fe7ff7dc8eff10f9cd85bb98358
 /**
  * Returns all of the items in the collection after the specified count.
  *
@@ -561,17 +515,6 @@ module.exports.itemAtIndex = function itemAtIndex(array, index, format) {
 };
 
 /**
-<<<<<<< HEAD
- * [joinObject description]
- * @method joinObject
- * @param  {[type]}   array     =             [] [description]
- * @param  {[type]}   prop      [description]
- * @param  {[type]}   separator [description]
- * @param  {[type]}   options   [description]
- * @return {[type]}             [description]
- */
-function joinObject() {
-=======
  * Join object
  * @method joinObject
  * @param  {[type]}   array
@@ -581,7 +524,6 @@ function joinObject() {
  * @return {[type]}
  */
 module.exports.joinObject = function joinObject() {
->>>>>>> 1aeb5317ded12fe7ff7dc8eff10f9cd85bb98358
   var array = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
   var prop = arguments[1];
   var separator = arguments[2];
