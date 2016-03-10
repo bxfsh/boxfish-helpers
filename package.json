@@ -1,6 +1,6 @@
 {
   "name": "boxfish-helpers",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Reusable Mustache / Handlebars helpers",
   "main": "./helpers/",
   "scripts": {
