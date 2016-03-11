@@ -212,7 +212,7 @@ module.exports.dateHasPassed = function dateHasPassed(date, options) {
   }
 
   var today = new Date().toISOString();
-  var date = new Date(date).toISOString();
+  var date = moment(date).toISOString();
 
   if (today > date) {
     return options.fn(this);
