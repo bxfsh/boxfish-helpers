@@ -10,6 +10,11 @@
  */
 module.exports.dateHasPassed = function dateHasPassed(date, options) {
 
+  if (!date) {
+    console.warn('[dateHasPassed] date argument should not be missing');
+    return;
+  }
+
   var today = new Date().toISOString();
   var date = new Date(date).toISOString();
 
