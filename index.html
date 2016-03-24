@@ -24,6 +24,7 @@
             <li><a href="#arrayContains">arrayContains</a></li>
             <li><a href="#before">before</a></li>
             <li><a href="#capitalize">capitalize</a></li>
+            <li><a href="#ceil">ceil</a></li>
             <li><a href="#commaSeparate">commaSeparate</a></li>
             <li><a href="#compare">compare</a></li>
             <li><a href="#dateHasPassed">dateHasPassed</a></li>
@@ -31,6 +32,7 @@
             <li><a href="#eachProperty">eachProperty</a></li>
             <li><a href="#eq">eq</a></li>
             <li><a href="#first">first</a></li>
+            <li><a href="#floor">floor</a></li>
             <li><a href="#formatDate">formatDate</a></li>
             <li><a href="#formatTweet">formatTweet</a></li>
             <li><a href="#formatTwitterSearch">formatTwitterSearch</a></li>
@@ -129,6 +131,18 @@
                 <h4>Usage:</h4>
                 <pre><code class="javascript">{{capitalize firstName}}</code></pre>
             </article>
+            <article id=ceil>
+              <h2>ceil</h2>
+              <p>Rounds a number up</p>
+              <pre><code class="javascript">function ceil(num) { ... }</code></pre>
+                <h4>Params:</h4>
+                <ul class="params">
+                      <li><span>(Number) - </span><code>num</code> </li>
+                </ul>
+
+                <h4>Usage:</h4>
+                <pre><code class="javascript">{{ceil 5.2}} // Outputs 6</code></pre>
+            </article>
             <article id=commaSeparate>
               <h2>commaSeparate</h2>
               <p>Returns an array list separated by commas</p>
@@ -223,6 +237,18 @@
                 <h4>Usage:</h4>
                 <pre><code class="javascript">{{first posts 10}}</code></pre>
             </article>
+            <article id=floor>
+              <h2>floor</h2>
+              <p>Rounds a number down</p>
+              <pre><code class="javascript">function floor(num) { ... }</code></pre>
+                <h4>Params:</h4>
+                <ul class="params">
+                      <li><span>(Number) - </span><code>num</code> </li>
+                </ul>
+
+                <h4>Usage:</h4>
+                <pre><code class="javascript">{{floor 5.9}} // Outputs 5</code></pre>
+            </article>
             <article id=formatDate>
               <h2>formatDate</h2>
               <p>Format a date string with moment.js</p>
@@ -296,7 +322,7 @@
                 </ul>
 
                 <h4>Usage:</h4>
-                <pre><code class="javascript">{{gt 4 5}}</code></pre>
+                <pre><code class="javascript">{{gte 4 5}}</code></pre>
             </article>
             <article id=gtlt>
               <h2>gtlt</h2>
