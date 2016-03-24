@@ -5,7 +5,7 @@
  * @param  {String|Number} b
  * @param  {Object} options
  * @return {[type]}
- * @example {{gt 4 5}}
+ * @example {{gte 4 5}}
  */
 module.exports.gte = function gte(a, b, options) {
   if (a >= b) {

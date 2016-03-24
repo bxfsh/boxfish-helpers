@@ -103,6 +103,22 @@ module.exports.capitalize = function capitalize() {
 };
 
 /**
+ * Rounds a number up
+ * @method ceil
+ * @param  {Number} num
+ * @return {Number} Returns rounded up number
+ * @example {{ceil 5.2}} // Outputs 6
+ */
+module.exports.ceil = function ceil(num) {
+  if (!num) return;
+  if (isNaN(num)) {
+    console.warn('[Helpers] Ceil - `num` parameter must be a number');
+  } else {
+    return Math.ceil(num);
+  }
+};
+
+/**
  * Returns an array list separated by commas
  * @method commaSeparate
  * @param  {Array} array
@@ -310,6 +326,22 @@ module.exports.first = function first() {
 };
 
 /**
+ * Rounds a number down
+ * @method floor
+ * @param  {Number} num
+ * @return {Number} Returns rounded down number
+ * @example {{floor 5.9}} // Outputs 5
+ */
+module.exports.floor = function floor(num) {
+  if (!num) return;
+  if (isNaN(num)) {
+    console.warn('[Helpers] Floor - `num` parameter must be a number');
+  } else {
+    return Math.floor(num);
+  }
+};
+
+/**
  * Format a date string with moment.js
  * @method formatDate
  *
@@ -420,7 +452,7 @@ module.exports.gt = function gt(a, b, options) {
  * @param  {String|Number} b
  * @param  {Object} options
  * @return {[type]}
- * @example {{gt 4 5}}
+ * @example {{gte 4 5}}
  */
 module.exports.gte = function gte(a, b, options) {
   if (a >= b) {
@@ -454,13 +486,16 @@ module.exports.gtlt = function gtlt(a, b, options) {
  * @param  {String} prop
  * @param  {String} val
  * @return {Array}
+ * @alias withProperty
+ * @deprecated (true) - use "withProperty" instead
  * @example {{#hasProperty movies 'genre' 'horror'}}
  *   // Horror Movies
  * {{/hasProperty}}
  */
-module.exports.hasProperty = function hasProperty(array, prop, val) {
+module.exports.hasProperty = function hasProperty(array, prop, val, options) {
   var ret = '';
 
+  // for each item in an array
   for (var i = 0; i < array.length; i++) {
     if (array[i].hasOwnProperty(prop) && array[i][prop] === val) {
       ret += options.fn(array[i]);
@@ -469,6 +504,8 @@ module.exports.hasProperty = function hasProperty(array, prop, val) {
 
   return ret;
 };
+
+module.exports.withProperty = module.exports.hasProperty;
 
 /**
  * Determines if there are any items in an array with a specific property
@@ -779,8 +816,10 @@ module.exports.tmdb = function tmdb(url, size, options) {
  * @return {Date} Returns todays date
  * @example {{today 'Do MMM, YYYY'}}
  */
-module.exports.today = function today() {
-  var format = arguments.length <= 0 || arguments[0] === undefined ? 'lll' : arguments[0];
+module.exports.today = function today(format, options) {
+  if (arguments.length === 1) {
+    var format = 'lll';
+  }
 
   return moment().format(format);
 };
@@ -797,7 +836,7 @@ module.exports.today = function today() {
  */
 module.exports.truncate = function truncate() {
   var paragraph = arguments.length <= 0 || arguments[0] === undefined ? '' : arguments[0];
-  var wordwise = arguments[1];
+  var wordwise = arguments.length <= 1 || arguments[1] === undefined ? true : arguments[1];
   var max = arguments[2];
   var tail = arguments.length <= 3 || arguments[3] === undefined ? ' ...' : arguments[3];
 
@@ -826,8 +865,9 @@ module.exports.truncate = function truncate() {
  */
 module.exports.uppercase = function uppercase(str) {
   if (typeof str === 'string') {
-    console.warn('[Helper] Uppercase helper parameter should be a string');
     return str.toUpperCase();
+  } else {
+    console.warn('[Helper] Uppercase helper parameter should be a string');
   }
 };
 },{}]},{},[1])

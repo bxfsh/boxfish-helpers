@@ -12,46 +12,6 @@ import { exec } from 'child_process';
 import livereload from 'gulp-livereload';
 import mocha from 'gulp-mocha';
 
-// The default task
-gulp.task('default', ['clean', 'babel', 'browserify', 'minify', 'sass-docs']);
-
-// The build task
-gulp.task('build', [
-  'clean',
-  'babel',
-  'browserify',
-  'minify',
-  'sass-docs',
-  'docs',
-]);
-
-// The watch task
-gulp.task('watch', () => {
-  gulp.watch('helpers/*.js', ['default']);
-  gulp.watch('docs/sass/*.scss', ['sass-docs']);
-  gulp.watch('docs/index.hbs', ['docs']);
-});
-
-// The tests task
-gulp.task('test', () => {
-  return gulp.src('tests/helpers/*.js', { read: false })
-    .pipe(mocha({ reporter: 'nyan' }));
-});
-
-gulp.task('docs', () => {
-  return exec('node ./index.js');
-});
-
-gulp.task('sass-docs', () => {
-  return gulp.src('docs/sass/*.scss')
-    .pipe(sass())
-    .pipe(autoprefixer({
-      browsers: ['last 2 versions'],
-      cascade: false,
-    }))
-    .pipe(gulp.dest('docs/css'));
-});
-
 // Clean out the /dist folder
 gulp.task('clean', function () {
   return gulp.src('dist/**/*', { read: false })
@@ -59,7 +19,7 @@ gulp.task('clean', function () {
 });
 
 // Compile the es6 files
-gulp.task('babel', () => {
+gulp.task('babel', ['clean'], () => {
 
   gulp.src('helpers/*.js')
     .pipe(concat('helpers.js'))
@@ -81,9 +41,26 @@ gulp.task('browserify', ['babel'], () => {
 });
 
 // Minify the dist file
-gulp.task('minify', () => {
+gulp.task('minify', ['browserify'], () => {
   return gulp.src('dist/boxfish-helpers.js')
     .pipe(uglify())
     .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest('dist'));
 });
+
+
+// The default task
+gulp.task('default', ['clean', 'babel', 'browserify', 'minify']);
+
+// Generate the docs
+gulp.task('docs', () => {
+  return docs();
+});
+
+// The watch task
+gulp.task('watch', () => {
+  gulp.watch('helpers/*.js', ['default']);
+});
+
+// The build task
+gulp.task('build', ['clean', 'babel', 'browserify', 'minify', 'sass-docs', 'docs']);

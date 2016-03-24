@@ -33,7 +33,7 @@ For versions of CanJS <2.3.0, you will have to manually create the `registerSimp
 ;(function(global) {
 
   if (global.hasOwnProperty('can')) {
-  
+
     // Add simpleHelper functionality to compute all helper arguments
     can.view.simpleHelper = function (fn) {
       return function () {
@@ -112,22 +112,21 @@ describe(function() {
 });
 ```
 
-> Note: You can run `./create_test.sh {{helperName}}.test.js` to automatically generate a test file in `tests/helpers`.
-
 * Run the tests
 ```shell
-gulp test
+npm test
 ```
 
 ### Gulp Tasks
 
-* `gulp default`
-clean > babel > browserify > sass-docs
+* `gulp`
+
+clean > babel > browserify > minify
 
 * `gulp build`
-default > min
+
+default > docs
 
 * `gulp watch`
-'helpers/*.js' > default
-'docs/sass/*.scss' > sass-docs
-'docs/index.hbs' > docs
+
+Executes default task when a change occurs to `helpers/*.js`
