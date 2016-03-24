@@ -24,6 +24,10 @@ describe('HELPERS', function() {
 
   console.log(`There are ${numberHelpers} helpers`);
 
+  before(function() {
+    should.exist('BoxfishHelpers');
+  });
+
   // After
   describe('After', function () {
     it('should return all elements after the fourth position', function (done) {
